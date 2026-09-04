@@ -88,6 +88,23 @@
       outline: 2px solid #0b2b4a;
       outline-offset: 2px;
     }
+    /* ===== CORES ALTERNADAS NA LISTA DROPDOWN ===== */
+    .student-area select option:nth-child(odd) {
+      background-color: #f5f8fc;
+      color: #0b2b4a;
+    }
+    .student-area select option:nth-child(even) {
+      background-color: #e8edf3;
+      color: #0b2b4a;
+    }
+    .student-area select option:checked {
+      background-color: #0b2b4a;
+      color: white;
+    }
+    .student-area select option:hover {
+      background-color: #d4e0ec;
+    }
+
     .info-badge {
       background: #eef3f9;
       padding: clamp(3px, 0.6vw, 6px) clamp(8px, 1.2vw, 18px);
@@ -330,12 +347,10 @@
       box-shadow: inset 0 4px 8px rgba(0,0,0,0.25), 0 4px 0 #08351f !important;
       transform: scale(0.97);
     }
-    /* Força o texto dentro da alternativa selecionada a ficar branco */
     .opt.selected span,
     .opt.selected .letter {
       color: #ffffff !important;
     }
-    /* ===== LETRA DA ALTERNATIVA ===== */
     .opt .letter {
       background: #d0dcec;
       border-radius: 40px;
@@ -348,12 +363,10 @@
       font-size: clamp(0.7rem, 1vw, 0.9rem);
       transition: all 0.15s ease;
     }
-    /* Quando selecionado, a letra fica com fundo verde mais claro e texto branco */
     .opt.selected .letter {
       background: #2a6b47 !important;
       color: #ffffff !important;
     }
-    /* O texto normal dentro da alternativa */
     .opt span:not(.letter) {
       color: inherit;
     }
@@ -659,8 +672,6 @@
     }
 
     .student-area select option {
-      background: white;
-      color: #0b2b4a;
       padding: 8px;
     }
   </style>

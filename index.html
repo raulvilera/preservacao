@@ -133,7 +133,6 @@
       align-items: center;
       gap: 8px;
     }
-    /* ===== CORES ALTERNADAS ===== */
     .custom-select .options .option:nth-child(odd) {
       background: #f5f8fc;
     }
@@ -247,7 +246,7 @@
       word-break: break-word;
     }
     .q-text {
-      font-size: clamp(0.85rem, 1.4vw, 1.05rem);
+      font-size: clamp(0.9rem, 1.4vw, 1.05rem);
       line-height: 1.6;
       margin-bottom: 12px;
       font-weight: 600;
@@ -257,13 +256,13 @@
     }
     .q-context {
       background: rgba(255,255,255,0.7);
-      padding: clamp(8px, 1.2vw, 14px) clamp(10px, 1.5vw, 18px);
-      border-radius: clamp(10px, 1.5vw, 16px);
+      padding: clamp(10px, 1.2vw, 16px) clamp(12px, 1.5vw, 20px);
+      border-radius: clamp(12px, 1.5vw, 16px);
       border-left: 4px solid #1a5a8a;
-      margin: 6px 0 14px;
-      font-size: clamp(0.75rem, 1.1vw, 0.95rem);
+      margin: 8px 0 16px;
+      font-size: clamp(0.8rem, 1.1vw, 0.95rem);
       color: #1e3b5a;
-      line-height: 1.5;
+      line-height: 1.6;
       backdrop-filter: blur(4px);
       box-shadow: inset 0 1px 4px rgba(0,0,0,0.04);
       word-wrap: break-word;
@@ -273,12 +272,12 @@
     /* ===== IMAGEM ===== */
     .q-img {
       width: 100%;
-      max-height: clamp(140px, 35vh, 280px);
+      max-height: clamp(180px, 35vh, 300px);
       object-fit: contain;
-      margin: 6px 0 14px;
-      border-radius: clamp(10px, 1.5vw, 16px);
+      margin: 8px 0 16px;
+      border-radius: clamp(12px, 1.5vw, 16px);
       background: rgba(255,255,255,0.6);
-      padding: clamp(4px, 0.8vw, 10px);
+      padding: clamp(6px, 0.8vw, 12px);
       border: 1px solid rgba(255,255,255,0.7);
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
       cursor: pointer;
@@ -371,8 +370,8 @@
     .options-container {
       display: flex;
       flex-direction: column;
-      gap: clamp(6px, 1.2vw, 12px);
-      margin-top: 8px;
+      gap: clamp(8px, 1.2vw, 14px);
+      margin-top: 10px;
     }
     .opt {
       background: rgba(255,255,255,0.85);
@@ -387,9 +386,9 @@
       align-items: center;
       gap: clamp(8px, 1vw, 14px);
       box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-      font-size: clamp(0.75rem, 1.1vw, 0.95rem);
+      font-size: clamp(0.78rem, 1.1vw, 0.95rem);
       word-wrap: break-word;
-      line-height: 1.3;
+      line-height: 1.4;
       -webkit-tap-highlight-color: transparent;
       user-select: none;
     }
@@ -445,9 +444,9 @@
       border-radius: clamp(14px, 2vw, 24px);
       border: 2px solid #d4e0ec;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      font-size: clamp(0.75rem, 1.1vw, 0.95rem);
+      font-size: clamp(0.78rem, 1.1vw, 0.95rem);
       resize: vertical;
-      min-height: clamp(60px, 10vh, 80px);
+      min-height: clamp(80px, 12vh, 100px);
       background: rgba(255,255,255,0.8);
       transition: 0.15s;
       -webkit-appearance: none;
@@ -603,8 +602,8 @@
       }
       .q-text { font-size: clamp(0.82rem, 1.3vw, 0.9rem); }
       .q-context { 
-        font-size: clamp(0.72rem, 1vw, 0.82rem); 
-        padding: clamp(8px, 1.2vw, 10px) clamp(10px, 1.5vw, 12px); 
+        font-size: clamp(0.75rem, 1vw, 0.85rem); 
+        padding: clamp(8px, 1.2vw, 12px) clamp(10px, 1.5vw, 14px); 
       }
       .activity-title { 
         font-size: clamp(0.9rem, 2vw, 1.1rem); 
@@ -640,7 +639,7 @@
       }
       .q-text { font-size: clamp(0.78rem, 1.2vw, 0.85rem); }
       .q-context { 
-        font-size: clamp(0.68rem, 1vw, 0.78rem); 
+        font-size: clamp(0.7rem, 1vw, 0.8rem); 
         padding: clamp(6px, 1vw, 8px) clamp(8px, 1.2vw, 10px);
         border-left-width: 3px;
       }
@@ -652,9 +651,9 @@
       .header-school h2 { font-size: clamp(0.85rem, 2vw, 1rem); }
       .q-number { font-size: clamp(0.6rem, 0.9vw, 0.7rem); padding: 2px 8px; }
       .q-type { font-size: clamp(0.5rem, 0.7vw, 0.6rem); padding: 2px 6px; }
-      .q-img { max-height: clamp(120px, 25vh, 180px); }
+      .q-img { max-height: clamp(140px, 25vh, 200px); }
       .essay-area textarea { 
-        min-height: clamp(50px, 8vh, 60px); 
+        min-height: clamp(60px, 10vh, 80px); 
         font-size: clamp(0.7rem, 1vw, 0.8rem);
         padding: clamp(8px, 1.2vw, 10px);
       }
@@ -701,7 +700,7 @@
       .container { padding: 6px; border-radius: 8px; }
       .question { padding: 8px; border-radius: 10px; margin-bottom: 10px; }
       .q-text { font-size: 0.72rem; }
-      .q-context { font-size: 0.65rem; padding: 6px 8px; }
+      .q-context { font-size: 0.68rem; padding: 6px 8px; }
       .opt { font-size: 0.65rem; padding: 4px 8px; border-radius: 12px; gap: 4px; }
       .opt .letter { min-width: 16px; font-size: 0.6rem; padding: 0 4px; }
       .q-number { font-size: 0.55rem; padding: 1px 6px; }
@@ -712,8 +711,8 @@
       .info-badge { font-size: 0.55rem; padding: 2px 6px; }
       .student-area { padding: 6px; gap: 4px; }
       .student-area label { font-size: 0.65rem; }
-      .q-img { max-height: 100px; }
-      .essay-area textarea { min-height: 40px; font-size: 0.65rem; padding: 6px 8px; }
+      .q-img { max-height: 110px; }
+      .essay-area textarea { min-height: 50px; font-size: 0.65rem; padding: 6px 8px; }
       .modal-close { top: -24px; width: 24px; height: 24px; font-size: 0.8rem; }
       .modal-close::before { font-size: 0.7rem; }
       .footer { font-size: 0.5rem; }
@@ -765,7 +764,6 @@
       </select>
     </label>
     <label>Aluno:
-      <!-- Dropdown personalizado -->
       <div class="custom-select" id="customSelect">
         <div class="selected" id="selectedDisplay">— selecione —</div>
         <div class="options" id="optionsContainer"></div>
@@ -846,117 +844,127 @@
     ];
     students.sort((a, b) => a.id - b.id);
 
-    // ===================== QUESTÕES =====================
+    // ===================== NOVAS QUESTÕES CONTEXTUALIZADAS =====================
     const questionsData = [
+      // ===== Questão 1 - Especiação e adaptação (baseada no arquivo 34) =====
       {
         id: 1, type: 'multiple', aula: 'Aula 1 – Especiação e adaptação',
-        context: 'Em uma ilha remota do Pacífico, uma população de aves foi dividida por uma erupção vulcânica que formou uma nova cadeia de montanhas. Após centenas de anos, cientistas observaram que as aves de cada lado da montanha desenvolveram bicos com formatos diferentes, adaptados aos alimentos disponíveis em cada região. Quando tentaram cruzar aves dos dois grupos, os filhotes eram inférteis.',
-        text: 'Com base no texto, qual processo evolutivo está ocorrendo e qual fator o desencadeou?',
+        context: 'Durante uma expedição, cientistas observaram uma população de lagartos com diferentes colorações na pele em uma região de solo escuro. Com o tempo, os lagartos de cor escura passaram a ser mais comuns, pois eram menos visíveis para os predadores. Esse fenômeno ocorreu ao longo de várias gerações, sem qualquer interferência humana.',
+        text: 'O principal fenômeno biológico que explica essa mudança na população de lagartos é a:',
         image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuP0BDTK8ituNCQR4c-g_3pm42tMC9vz1a3pb9RaNhoNVQvkGWmORTQcHqGf7xQUZaIhWe9dc3CejvDCvuBqK4czfizkDFYzIGIWtnmlQuiHIcvj0gt6RTAX3MWO8bfu8kLqONLVa8XGM3Loj1Z83xwwf99s9Zi9m2w33VfQqde6apRm-OSB7-o4I2iOL_/s776/Figura%201.PNG',
         options: [
-          'Seleção artificial, causada pela intervenção humana na alimentação das aves.',
-          'Especiação alopátrica, desencadeada pelo isolamento geográfico seguido de isolamento reprodutivo.',
-          'Evolução convergente, causada pela competição por alimento entre as populações.',
-          'Deriva genética, causada pela redução aleatória da variabilidade genética.'
+          'Alteração da coloração provocada por uma mutação intencional dos lagartos.',
+          'Adaptação ao ambiente, favorecida pela seleção natural ao longo das gerações.',
+          'Especiação causada por mutação artificial induzida pelo ambiente.',
+          'Migração de espécies de outras regiões com coloração escura.'
         ],
         correct: 1
       },
+      // ===== Questão 2 - Evolução convergente e divergente (baseada no arquivo 35) =====
       {
         id: 2, type: 'multiple', aula: 'Aula 2 – Evolução convergente e divergente',
-        context: 'Ao estudar diferentes espécies de mamíferos aquáticos, pesquisadores notaram que golfinhos (mamíferos) e tubarões (peixes) possuem corpos hidrodinâmicos e nadadeiras com formatos semelhantes, apesar de terem ancestrais completamente diferentes. Por outro lado, os membros anteriores de golfinhos, morcegos e seres humanos têm a mesma estrutura óssea básica (úmero, rádio, ulna e dedos), mas são usados para funções distintas.',
-        text: 'Os exemplos descritos ilustram, respectivamente, os conceitos de:',
+        context: 'Ao estudar diferentes espécies de animais voadores, pesquisadores observaram que pássaros e morcegos possuem asas com estruturas internas diferentes, mas que cumprem a mesma função de voar. Enquanto as asas dos pássaros são formadas por penas e ossos modificados, as dos morcegos são formadas por uma membrana de pele esticada entre os dedos alongados. Apesar das diferenças estruturais, ambos os grupos desenvolveram a capacidade de voar de forma eficiente.',
+        text: 'Essa semelhança funcional entre pássaros e morcegos é uma evidência da ocorrência da evolução:',
         image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2QEbw0VprX3-kOPwuamSeyr5RbIdhiWzM49ZZi1q2qiBmJ8rAHN0q3-fgIOGf2G3FMJGccea91OcrtYvSPODyoIFjpa-3nrcqiCAIgOAiUwG3aBftdY5_aYGdP0BSK4FYhYxvtsYnwF4GpFUfFJm5pI1msj7EHb0wbq7kDVVY14nIm4wuP8-ohHjtGvPq/s2560/atividade-classificacao-sem-respostas.png',
         options: [
-          'Evolução convergente e homologia.',
-          'Evolução divergente e analogia.',
-          'Analogia e evolução convergente.',
-          'Homologia e evolução divergente.'
+          'Convergente, com características semelhantes devido a pressões ambientais parecidas.',
+          'Divergente, com diferenças surgindo a partir de um ancestral comum.',
+          'Convergente, com semelhanças a partir da mesma origem evolutiva.',
+          'Divergente, com adaptações distintas no mesmo habitat.'
         ],
         correct: 0
       },
+      // ===== Questão 3 - Evidências da evolução (baseada no arquivo 36) =====
       {
         id: 3, type: 'multiple', aula: 'Aula 3 – Evidências da evolução',
-        context: 'Um grupo de paleontólogos encontrou na Chapada dos Veadeiros (GO) um fóssil bem preservado de um réptil pré-histórico com características que misturam traços de dinossauros e aves. Simultaneamente, um laboratório de genética comparou o DNA de aves modernas com o de répteis atuais e identificou sequências genéticas compartilhadas que controlam o desenvolvimento de penas e escamas.',
-        text: 'Qual das seguintes evidências é considerada a mais robusta para estabelecer relações de ancestralidade comum entre as espécies?',
+        context: 'O Archaeopteryx é um fóssil famoso que apresenta características de répteis (como dentes e uma longa cauda óssea) e de aves (como penas e asas). Esse fóssil, que viveu há cerca de 150 milhões de anos, é considerado uma peça-chave para entender a transição evolutiva entre dois grandes grupos de vertebrados.',
+        text: 'A análise de fósseis como o do Archaeopteryx é importante para os estudos de evolução porque eles:',
         image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvggSTVjpJaT74QFV-TDeG0WHzTT2-W9AxOqzAwFremJcRk2uvX4rUDngIWk9Cn5FIYxKCC_z3W_jKed7CVLVP5ptsuOcDhYmBQ_c9CkNoBqEux9jGpdGCk0TmJwT4TdyGBj64SHEQiBrfSyeONGA8pnXTTKnXUkJDS5ddeRv89yh2QZhu9nxzDhXrFLVt/s2560/contexto-fossil-genetica-neutro.png',
         options: [
-          'A semelhança morfológica entre os fósseis e as aves atuais.',
-          'A análise de DNA que revela sequências genéticas compartilhadas.',
-          'A posição estratigráfica onde o fóssil foi encontrado.',
-          'A semelhança no comportamento alimentar entre répteis e aves.'
+          'Mostram mutações recentes que originaram as espécies atuais.',
+          'Comprovam que apenas as espécies atuais passam por mudanças evolutivas.',
+          'Indicam espécies de transição com traços de grupos diferentes.',
+          'Apontam que as espécies permanecem inalteradas ao longo do tempo.'
         ],
-        correct: 1
+        correct: 2
       },
+      // ===== Questão 4 - Evolução e biodiversidade (baseada no arquivo 37) =====
       {
         id: 4, type: 'multiple', aula: 'Aula 4 – Evolução e biodiversidade',
-        context: 'A Mata Atlântica abriga cerca de 20.000 espécies de plantas, 2.000 de vertebrados e milhares de invertebrados, muitas delas endêmicas. Cientistas estimam que essa biodiversidade é resultado de milhões de anos de evolução em um ambiente com grande variação de altitude, clima e disponibilidade de recursos. Além disso, o isolamento de populações em diferentes "ilhas" de floresta ao longo do tempo contribuiu para o surgimento de novas espécies.',
-        text: 'Considerando o texto, qual processo foi fundamental para a geração da alta biodiversidade observada na Mata Atlântica?',
+        context: 'Em uma ilha isolada, cientistas encontraram diferentes espécies de pássaros com bicos de formas e tamanhos variados. Eles perceberam que cada tipo de bico era mais eficiente para obter um tipo específico de alimento — sementes duras, frutas macias ou insetos — conforme a alimentação disponível em cada parte da ilha. Essa diversidade de bicos surgiu ao longo de muitas gerações.',
+        text: 'Essa observação permite concluir que as variações nos bicos dos pássaros são:',
         image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilO7FQly5LNfYz_v2hTLD10K29NvUXTVO1H4F3DhP-0NTcDbWO4yVeUvsiyrjOHD17fAGh_4SE3M26j9iwvBKuETTZEuhaOQOLECoMZdFonRrFCRNcVeL5S5A94RMcpbHVcbBX5XHqn7ToosU_SrDP0ApFiPTJpske9V6-cEvKbAoEZmIXrQZmM0ULmOe6/s2560/mata-atlantica-biodiversidade-neutra.png',
         options: [
-          'A seleção natural atuando de forma homogênea em toda a floresta.',
-          'A deriva genética causada por eventos catastróficos recentes.',
-          'O isolamento geográfico e reprodutivo associado à seleção natural em diferentes ambientes.',
-          'A introdução de espécies exóticas que aumentaram a variabilidade genética.'
+          'Diferenças que surgem ao acaso e não contribuem para a diversidade das espécies.',
+          'Características que todas as espécies de pássaros desenvolvem igualmente com o tempo.',
+          'Mudanças que ocorrem por decisões conscientes dos pássaros para se alimentar melhor.',
+          'Adaptações evolutivas que favorecem a diversidade de espécies em diferentes ambientes.'
         ],
-        correct: 2
+        correct: 3
       },
+      // ===== Questão 5 - Preservação da biodiversidade (baseada no arquivo 38) =====
       {
         id: 5, type: 'multiple', aula: 'Aula 5 – Preservação da biodiversidade',
-        context: 'Em 2025, o Instituto Nacional de Pesquisas Espaciais (INPE) registrou um aumento de 25% nos alertas de desmatamento na Amazônia em comparação ao ano anterior. Além da perda direta de habitat, o desmatamento afeta o regime de chuvas, a ciclagem de nutrientes e o estoque de carbono. Estudos indicam que a cada 10% de desmatamento, há uma redução de 15% na diversidade de espécies de aves na região.',
-        text: 'Qual é o impacto direto e indireto do desmatamento descrito no texto sobre a biodiversidade amazônica?',
+        context: 'Em diversas regiões do mundo, o aumento das atividades humanas, como a agricultura intensiva, a urbanização acelerada e a poluição dos rios, tem provocado mudanças profundas nos ecossistemas locais. Essas transformações têm impacto direto sobre a biodiversidade, causando efeitos que podem alterar o funcionamento dos ambientes naturais e comprometer serviços ambientais essenciais.',
+        text: 'Considerando esse contexto, qual das alternativas apresenta uma consequência direta da interferência humana na biodiversidade?',
         image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhuKButZXo3BMSUMmOcKqullGChLsqqs7erUFV5g7A7Q6njgc8X8bF1NCe-ta7-wZOR5jUI2dNgcQoxbS9QCL9BFzn-DfZEmFopyl_lnBdRUYRxpdUrz5-hZuhryQvcu2pg5obyW02da7l6mtUoGCfp2aO_Dw6G7I8ujoYbU0E74WiMAWUjxK8B-cKMvJa8/s1376/Gemini_Generated_Image_5zw8ue5zw8ue5zw8%20%281%29.png',
         options: [
-          'Aumento da biodiversidade devido à abertura de novas áreas para espécies pioneiras.',
-          'Redução da biodiversidade pela perda de habitat e alteração dos serviços ecossistêmicos.',
-          'Deslocamento de espécies para áreas urbanas, aumentando a diversidade nas cidades.',
-          'Aumento da taxa de especiação devido à fragmentação do habitat.'
+          'A redução do número de espécies pode provocar desequilíbrios ecológicos, como a perda de polinizadores, afetando cadeias alimentares e serviços ambientais.',
+          'A urbanização reduz a fragmentação dos habitats, facilitando a migração das espécies e aumentando a biodiversidade local.',
+          'A interferência humana favorece a adaptação rápida das espécies nativas, aumentando a resistência dos ecossistemas às mudanças ambientais.',
+          'A expansão de áreas agrícolas intensivas frequentemente substitui habitats naturais, aumentando a diversidade de espécies e favorecendo os processos ecológicos.'
         ],
-        correct: 1
+        correct: 0
       },
+      // ===== Questão 6 - Unidades de conservação (baseada no arquivo 39) =====
       {
         id: 6, type: 'multiple', aula: 'Aula 6 – Unidades de conservação',
-        context: 'O Parque Nacional da Serra da Canastra (MG) é uma unidade de conservação de proteção integral que abriga nascentes do rio São Francisco e populações do lobo-guará, tamanduá-bandeira e outras espécies ameaçadas. Neste tipo de unidade, as atividades humanas são extremamente restritas, sendo permitidas apenas pesquisas científicas, educação ambiental e turismo ecológico com baixo impacto.',
-        text: 'A principal diferença entre uma unidade de conservação de proteção integral e uma de uso sustentável é que:',
+        context: 'A criação de unidades de conservação no Brasil é uma estratégia legal e territorial utilizada para organizar o uso do espaço e dos recursos naturais em diferentes regiões do país. Essas unidades são classificadas em dois grandes grupos: Unidades de Proteção Integral, que possuem regras mais restritivas quanto às atividades humanas, e Unidades de Uso Sustentável, que permitem certos tipos de uso controlado.',
+        text: 'A adoção desse tipo de política pública tem como principal objetivo:',
         image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAmdgnu_Pqx-MHPeNCjnWtsQ0TRCj5Xt7E8vuWx3iNk5Hh6ELtL7SisS82uFQZQUaKgU6jf5enQAeJpn_I9W433yU2CC_-oHq6CXTGLgjBOGkPVsXeK34vMym2xHt6GvaLtCYo1nXyJJnULKXGhPG3StrtwjL49WzX1IeCVHxPW9f74MSrCChvycU_gsng/s1408/Gemini_Generated_Image_8c084k8c084k8c08.png',
         options: [
-          'As unidades de proteção integral permitem a exploração de recursos naturais de forma controlada.',
-          'As unidades de uso sustentável têm como objetivo a preservação da natureza sem qualquer intervenção humana.',
-          'As unidades de proteção integral priorizam a conservação da natureza, enquanto as de uso sustentável permitem atividades econômicas regulamentadas.',
-          'As unidades de uso sustentável não possuem restrições ambientais e permitem qualquer tipo de ocupação.'
+          'Permitir o crescimento urbano em áreas de interesse ambiental.',
+          'Reduzir os investimentos públicos em ações de fiscalização ambiental.',
+          'Incentivar atividades agrícolas e pecuárias em zonas de floresta nativa.',
+          'Preservar ecossistemas, espécies e os serviços ambientais associados.'
         ],
-        correct: 2
+        correct: 3
       },
+      // ===== Questão 7 - RPG: plano de manejo (baseada no arquivo 40) - DISSERTATIVA =====
       {
         id: 7, type: 'essay', aula: 'Aula 7 – RPG: plano de manejo',
-        context: 'Em uma unidade de conservação localizada no interior de São Paulo, o conselho gestor está elaborando o plano de manejo. Esse plano deve equilibrar a conservação da biodiversidade com as necessidades das comunidades tradicionais que vivem no entorno, além de prever ações para controle de espécies invasoras, prevenção de incêndios e educação ambiental.',
-        text: 'Descreva dois critérios essenciais que devem ser considerados na elaboração de um plano de manejo para essa unidade de conservação, justificando a importância de cada um.',
+        context: 'A Reserva Extrativista Chico Mendes, no Acre, é um exemplo de unidade de conservação que protege a floresta, preserva espécies ameaçadas, mantém rios limpos, regula o clima e garante que comunidades locais possam viver de forma sustentável, por meio do extrativismo vegetal e do ecoturismo. O plano de manejo dessa reserva busca equilibrar a conservação ambiental com as necessidades das populações tradicionais.',
+        text: 'Descreva dois critérios essenciais que devem ser considerados na elaboração de um plano de manejo para uma unidade de conservação como a Reserva Extrativista Chico Mendes, justificando a importância de cada um para o equilíbrio entre preservação e uso sustentável.',
         image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEioX74OmhEeOudptrsV2GirDhzVrJosNSiOwtuo-hf81AtZ8fDiK8bKQMDO0tJ-KyM4YGgFn_sDwqag2eNSFXqVOBfaa1SjK5cI6ET9q1opxxAxWYT8Sos0m_Ow5_R7eP2XxXgh8HCVjSMKH3EwSvbKGCljxnKoSBoe8mZGgR5AAmfehw4drxsLeTs6wlAT/s1408/Gemini_Generated_Image_26vemb26vemb26ve.png',
         options: []
       },
+      // ===== Questão 8 - RPG: construindo um plano de manejo (baseada no arquivo 40) - DISSERTATIVA =====
       {
         id: 8, type: 'essay', aula: 'Aula 8 – RPG: construindo um plano de manejo',
-        context: 'Durante uma reunião participativa para construção do plano de manejo da Estação Ecológica de Angatuba (SP), representantes da comunidade local, pesquisadores, gestores públicos e ONGs ambientais apresentaram diferentes perspectivas sobre o uso dos recursos naturais. Houve debate sobre a abertura de trilhas para ecoturismo, a permissão de coleta de frutos nativos e a implementação de programas de monitoramento da fauna.',
-        text: 'Por que é importante envolver a comunidade local na construção de um plano de manejo de uma unidade de conservação? Cite e explique dois motivos.',
+        context: 'Durante a elaboração do plano de manejo da Reserva Extrativista Chico Mendes, representantes da comunidade local, pesquisadores, gestores públicos e ONGs ambientais se reuniram para discutir o uso dos recursos naturais. Houve debates sobre a permissão do extrativismo, a implementação de programas de monitoramento da fauna e a criação de rotas de ecoturismo que respeitem a capacidade de suporte da floresta.',
+        text: 'Por que é importante envolver a comunidade local na construção de um plano de manejo de uma unidade de conservação? Cite e explique dois motivos, relacionando-os ao contexto da Reserva Extrativista Chico Mendes.',
         image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgId8yEKqpFc1EKABbFlk7xWL6zlrTBXTwTSXo40Tuaew4_9uc848kweqSLj00avhlwFIN09g7oVANUFnvodKAamO3-VFiN10nwL535krZ-qiq7OD3rBsTS0E0lGMHCFJsirUpe7jeNwMhxOUIS89O5wJqI0unqyDrBS0YzY2WR7-2AXUKuWKCQJW1Gb45M/s2816/Gemini_Generated_Image_eo6naoeo6naoeo6n.png',
         options: []
       },
+      // ===== Questão 9 - Bacias hidrográficas (baseada no arquivo 41) =====
       {
         id: 9, type: 'multiple', aula: 'Aula 9 – Bacias hidrográficas',
-        context: 'A Bacia do Rio Tietê é uma das mais importantes do estado de São Paulo, abastecendo milhões de pessoas e sendo utilizada para geração de energia, irrigação e navegação. No entanto, a urbanização e as atividades agrícolas têm causado o assoreamento dos rios, a contaminação por agrotóxicos e a redução das matas ciliares. Esses impactos comprometem a qualidade da água e a biodiversidade aquática.',
-        text: 'Qual é a função ecológica da mata ciliar para a preservação dos recursos hídricos?',
+        context: 'Uma bacia hidrográfica é um sistema natural que capta, concentra e direciona as águas superficiais para um ponto comum, geralmente um rio principal. A figura representa os principais componentes de uma bacia hidrográfica, incluindo o rio principal, os afluentes e o divisor de águas — áreas elevadas que separam bacias vizinhas.',
+        text: 'Com base na figura, qual alternativa identifica corretamente os componentes numerados 1, 2 e 3?',
         image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNghTf5Q2MjWSLSwJ0OXy4AQFhvovFB2DEHAPCeYvP9n1vGc8sozCE1lnXzh5ua05sXMzuB0N8014pngwKCo0wtHuondDb3grRkM1siTGfu4zPa2U_-feeuLhSGrMWkvNMMC84hsETmTZNFeYUbXF-c6QbFwv9HCh8FAX4HoqFyOF5W8QRmbgAEjJIsqnQ/s1536/ChatGPT%20Image%204%20de%20set.%20de%202026,%2003_03_17.png',
         options: [
-          'Aumentar a vazão dos rios durante o período de seca.',
-          'Proteger as margens contra a erosão e o assoreamento, além de filtrar poluentes.',
-          'Facilitar a navegação e o transporte de cargas nos rios.',
-          'Permitir a expansão agrícola até as margens dos rios.'
+          '1 – Afluentes; 2 – Rio Principal; 3 – Leito do rio.',
+          '1 – Rio Principal; 2 – Afluentes; 3 – Divisor de águas.',
+          '1 – Divisor de águas; 2 – Rio Principal; 3 – Afluentes.',
+          '1 – Leito do rio; 2 – Divisor de águas; 3 – Rio Principal.'
         ],
         correct: 1
       },
+      // ===== Questão 10 - Poluição da água (baseada no arquivo 42) - DISSERTATIVA =====
       {
         id: 10, type: 'essay', aula: 'Aula 10 – Poluição da água',
-        context: 'Na região do Alto Tietê, o aumento populacional e a industrialização têm gerado elevada carga de poluentes nos corpos dágua. As principais fontes de poluição incluem o lançamento de esgoto doméstico não tratado, o descarte de resíduos industriais contendo metais pesados e o uso intensivo de fertilizantes e defensivos agrícolas. Esses poluentes afetam a qualidade da água, os organismos aquáticos e a saúde da população.',
-        text: 'Cite duas fontes de poluição da água mencionadas no texto e explique como cada uma delas afeta os ecossistemas aquáticos.',
+        context: 'A água dos rios, lagos e aquíferos pode ser contaminada por diversas fontes, afetando tanto o abastecimento humano quanto a vida aquática. Entre as principais fontes de poluição da água, destacam-se o lançamento de resíduos industriais nos rios, o uso excessivo de fertilizantes na agricultura e o despejo de esgoto doméstico sem tratamento. Esses poluentes causam impactos como a eutrofização, a contaminação por metais pesados e a proliferação de doenças de veiculação hídrica.',
+        text: 'Considerando o texto, identifique e explique duas fontes de poluição da água e descreva como cada uma delas afeta os ecossistemas aquáticos e a saúde humana.',
         image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQcnUnt5UMK2S5b9_D-cMLwimQPsn3VJ8rbGaDLx-PnU-er6o_3AZQt7ReX9jXc9qmdCw7hY16fbJvrf03X5b-1hbHffdusU6042WOhGE-o9YLwa7kSzoPqOEffvY110U0YBKEZ4mGN9gx4tSO2adb1hyphenhyphenMORlHQNcmkYTxAGwM95r_ILczAvDMFGj_U4L8/s1408/Gemini_Generated_Image_mvychymvychymvyc.png',
         options: []
       }
@@ -974,7 +982,7 @@
     const raDisplay = document.getElementById('raDisplay');
     const emailDisplay = document.getElementById('emailDisplay');
 
-    // ===================== ELEMENTOS DO DROPDOWN PERSONALIZADO =====================
+    // ===================== ELEMENTOS DO DROPDOWN =====================
     const selectedDisplay = document.getElementById('selectedDisplay');
     const optionsContainer = document.getElementById('optionsContainer');
     let isOpen = false;
@@ -997,7 +1005,7 @@
     }
     populateCustomSelect();
 
-    // ===================== ABRIR/FECHAR DROPDOWN =====================
+    // ===================== DROPDOWN =====================
     function toggleDropdown() {
       isOpen = !isOpen;
       optionsContainer.classList.toggle('show', isOpen);
@@ -1031,14 +1039,13 @@
         raDisplay.textContent = `RA: ${student.ra}-${student.dig}`;
         emailDisplay.textContent = `E-mail: ${student.email || '—'}`;
         
-        // Marca como selecionado nas opções
         document.querySelectorAll('.custom-select .options .option').forEach(el => {
           el.classList.toggle('selected-item', parseInt(el.dataset.id) === id);
         });
       }
     }
 
-    // ===================== ELEMENTOS DO MODAL =====================
+    // ===================== MODAL =====================
     const modal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
     const modalClose = document.getElementById('modalCloseBtn');

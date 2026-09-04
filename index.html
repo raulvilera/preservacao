@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>9º Ano A - Avaliação Ciências (3º Bimestre)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #e8edf3;
+      font-family: 'Inter', sans-serif;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+    .container {
+      max-width: 1000px;
+      width: 100%;
+      background: #f5f8fc;
+      border-radius: 32px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+      padding: 30px 30px 40px;
+    }
+    .header-school {
+      background: linear-gradient(145deg, #0b2b4a, #1a4a6e);
+      color: white;
+      padding: 18px 24px;
+      border-radius: 24px;
+      margin-bottom: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 8px 16px rgba(11, 43, 74, 0.25);
+    }
+    .header-school h2 {
+      font-weight: 600;
+      font-size: 1.3rem;
+      letter-spacing: -0.3px;
+    }
+    .header-school .badge {
+      background: rgba(255,255,255,0.15);
+      padding: 6px 20px;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      backdrop-filter: blur(4px);
+    }
+    .student-area {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 20px;
+      background: #ffffff;
+      padding: 18px 22px;
+      border-radius: 40px;
+      margin-bottom: 30px;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      border: 1px solid #dce6f0;
+    }
+    .student-area label {
+      font-weight: 600;
+      color: #1e2b3c;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .student-area select {
+      padding: 8px 16px;
+      border-radius: 40px;
+      border: 1px solid #b0c4d9;
+      background: white;
+      font-weight: 500;
+      min-width: 200px;
+      cursor: pointer;
+    }
+    .info-badge {
+      background: #eef3f9;
+      padding: 6px 20px;
+      border-radius: 40px;
+      font-weight: 500;
+      color: #0a2647;
+      font-size: 0.9rem;
+      border: 1px solid #d4e0ec;
+      white-space: nowrap;
+    }
+    /* === CARDS DAS QUESTÕES COM DEGRADE E SOMBREAMENTO === */
+    .question {
+      background: linear-gradient(145deg, #f0f6fe, #e6ecf5);
+      border-radius: 28px;
+      padding: 22px 26px 28px;
+      margin-bottom: 32px;
+      box-shadow: 0 8px 0 #b8c6d8, 0 12px 28px rgba(0, 20, 40, 0.08);
+      border: 1px solid rgba(255,255,255,0.6);
+      transition: transform 0.15s ease;
+    }
+    .question:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 0 #b0bed2, 0 18px 36px rgba(0, 20, 40, 0.12);
+    }
+    .q-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .q-number {
+      background: #0b2b4a;
+      color: white;
+      padding: 4px 18px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 0 #082036;
+    }
+    .q-type {
+      background: rgba(11, 43, 74, 0.10);
+      padding: 4px 16px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #1e3b5a;
+      border: 1px solid rgba(11, 43, 74, 0.15);
+    }
+    .q-text {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 12px;
+      font-weight: 600;
+      color: #0b1d30;
+    }
+    .q-context {
+      background: rgba(255,255,255,0.7);
+      padding: 14px 18px;
+      border-radius: 16px;
+      border-left: 5px solid #1a5a8a;
+      margin: 8px 0 16px;
+      font-size: 0.95rem;
+      color: #1e3b5a;
+      line-height: 1.5;
+      backdrop-filter: blur(4px);
+      box-shadow: inset 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .q-img {
+      width: 100%;
+      max-height: 280px;
+      object-fit: contain;
+      margin: 8px 0 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.6);
+      padding: 10px;
+      border: 1px solid rgba(255,255,255,0.7);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .opt {
+      background: rgba(255,255,255,0.8);
+      padding: 14px 20px;
+      border-radius: 60px;
+      border: 2px solid transparent;
+      transition: all 0.12s ease;
+      cursor: pointer;
+      font-weight: 500;
+      color: #0b1d30;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      backdrop-filter: blur(2px);
+    }
+    .opt:hover {
+      background: rgba(255,255,255,0.95);
+      border-color: #8aadc9;
+      transform: scale(1.01);
+    }
+    .opt.selected {
+      background: #0f4a2e;
+      color: white;
+      font-weight: 700;
+      border-color: #0f4a2e;
+      box-shadow: inset 0 4px 8px rgba(0,0,0,0.25), 0 4px 0 #08351f;
+      transform: scale(0.97);
+    }
+    .opt.selected span {
+      color: white;
+    }
+    .opt .letter {
+      background: #d0dcec;
+      border-radius: 40px;
+      padding: 0 14px;
+      font-weight: 700;
+      color: #112b40;
+    }
+    .opt.selected .letter {
+      background: #2a6b47;
+      color: white;
+    }
+    .essay-area {
+      margin-top: 14px;
+    }
+    .essay-area textarea {
+      width: 100%;
+      padding: 16px 18px;
+      border-radius: 24px;
+      border: 2px solid #d4e0ec;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      resize: vertical;
+      min-height: 80px;
+      background: rgba(255,255,255,0.8);
+      transition: 0.15s;
+    }
+    .essay-area textarea:focus {
+      border-color: #1b5a8a;
+      outline: none;
+      background: white;
+      box-shadow: 0 0 0 4px rgba(27, 90, 138, 0.1);
+    }
+    .action-bar {
+      margin: 30px 0 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+    .btn {
+      background: #0b2b4a;
+      border: none;
+      color: white;
+      padding: 14px 36px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.15s;
+      box-shadow: 0 6px 0 #082036, 0 8px 20px rgba(9, 30, 60, 0.2);
+    }
+    .btn:hover {
+      background: #16456b;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 #082036, 0 12px 28px rgba(9, 30, 60, 0.25);
+    }
+    .btn:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 #082036;
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #0b2b4a;
+      color: #0b2b4a;
+      box-shadow: 0 4px 0 #b8c6d8;
+    }
+    .btn-outline:hover {
+      background: #e9f0f8;
+      transform: translateY(-2px);
+    }
+    .btn-outline:active {
+      transform: translateY(4px);
+      box-shadow: 0 1px 0 #b8c6d8;
+    }
+    .footer {
+      border-top: 1px solid #dce6f0;
+      padding-top: 20px;
+      margin-top: 20px;
+      text-align: center;
+      color: #4b637a;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 700px) {
+      .container { padding: 16px; }
+      .student-area { flex-direction: column; align-items: stretch; }
+    }
+  </style>
+</head>
+<body>
+<div class="container" id="appContainer">
+
+  <div class="header-school">
+    <h2>E.E. PROFª WANDA MASCAGNI DE SÁ</h2>
+    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+      <span class="badge">9º Ano A</span>
+      <span class="badge">Ciências</span>
+    </div>
+  </div>
+
+  <div class="student-area" id="studentArea">
+    <label>Turma:
+      <select id="classSelect">
+        <option value="9A">9º Ano A</option>
+      </select>
+    </label>
+    <label>Aluno:
+      <select id="studentSelect">
+        <option value="">— selecione —</option>
+      </select>
+    </label>
+    <span class="info-badge" id="nDisplay">Nº: —</span>
+    <span class="info-badge" id="raDisplay">RA: —</span>
+    <span class="info-badge" id="emailDisplay">E-mail: —</span>
+  </div>
+
+  <div id="questionsContainer"></div>
+
+  <div class="action-bar">
+    <button class="btn" id="sendBtn">📤 Enviar respostas</button>
+    <button class="btn btn-outline" id="resetBtn">↺ Reiniciar</button>
+  </div>
+  <div class="footer">
+    Questões baseadas no Guia Priorizado – 3º Bimestre · 9º Ano · Aprendizagens Essenciais Prova Paulista
+  </div>
+</div>
+
+<script>
+  (function() {
+    // ===================== LISTA DE ALUNOS =====================
+    const students = [
+      { id: 1, nome: 'ALICE CARVALHO', ra: '114160176', dig: 'X', email: '0000114160176XSP@al.educacao.sp.gov.br' },
+      { id: 2, nome: 'AMANDA PASSOS DE ALMEIDA', ra: '115864899', dig: '6', email: '00001158648996SP@al.educacao.sp.gov.br' },
+      { id: 5, nome: 'ANA JÚLIA MENEZES DA SILVA', ra: '115079886', dig: '5', email: '00001150798865SP@al.educacao.sp.gov.br' },
+      { id: 7, nome: 'ARTHUR COHEN BARRETO', ra: '116651899', dig: '1', email: '00001166518991SP@al.educacao.sp.gov.br' },
+      { id: 8, nome: 'ARTHUR DAVI DE SOUZA FERNANDES', ra: '115287899', dig: '2', email: '00001152878992SP@al.educacao.sp.gov.br' },
+      { id: 10, nome: 'EDUARDA ALVES DE SOUZA', ra: '115507309', dig: '5', email: '00001155073095SP@al.educacao.sp.gov.br' },
+      { id: 11, nome: 'EMANUEL ALVES OLIVEIRA', ra: '112971413', dig: '5', email: '00001129714135SP@al.educacao.sp.gov.br' },
+      { id: 12, nome: 'ESTHER CRISTINE SILVA RIBEIRO', ra: '113216026', dig: '1', email: '00001132160261SP@al.educacao.sp.gov.br' },
+      { id: 13, nome: 'EVELLYN ALVES DA SILVA', ra: '121483284', dig: '2', email: '00001214832842SP@al.educacao.sp.gov.br' },
+      { id: 14, nome: 'EVELLYN YASMIN TAVARES SILVA', ra: '120570957', dig: '5', email: '00001205709575SP@al.educacao.sp.gov.br' },
+      { id: 15, nome: 'FELIPE DE SOUZA RODRIGUES', ra: '115879478', dig: '2', email: '00001158794782SP@al.educacao.sp.gov.br' },
+      { id: 16, nome: 'FERNANDA POLACHINI MAYER GOMES MARQUES', ra: '113220165', dig: '2', email: '00001132201652SP@al.educacao.sp.gov.br' },
+      { id: 17, nome: 'GUSTAVO AUGUSTO TOMBOLO REIS', ra: '121486964', dig: '6', email: '00001214869646SP@al.educacao.sp.gov.br' },
+      { id: 19, nome: 'HINGRID SARAIVA DOS SANTOS', ra: '115343277', dig: '8', email: '00001153432778SP@al.educacao.sp.gov.br' },
+      { id: 20, nome: 'IGOR MARTINS PEREIRA', ra: '115083615', dig: '5', email: '00001150836155SP@al.educacao.sp.gov.br' },
+      { id: 21, nome: 'ISABELLA DOS SANTOS SALDANHA', ra: '115076210', dig: 'X', email: '0000115076210XSP@al.educacao.sp.gov.br' },
+      { id: 22, nome: 'KAUANNY APARECIDA MALAQUIAS LIMA', ra: '115077275', dig: 'X', email: '0000115077275XSP@al.educacao.sp.gov.br' },
+      { id: 23, nome: 'KÉTHILY NAYARA DA SILVA', ra: '114160080', dig: '8', email: '00001141600808SP@al.educacao.sp.gov.br' },
+      { id: 24, nome: 'LEONARDO DE AVELAR CARVALHO', ra: '115077491', dig: '5', email: '00001150774915SP@al.educacao.sp.gov.br' },
+      { id: 25, nome: 'LIVIA OLIVEIRA NASCIMENTO', ra: '116528242', dig: '2', email: '00001165282422SP@al.educacao.sp.gov.br' },
+      { id: 26, nome: 'LOHRAN ROMUALDO MENDES DA SILVA', ra: '115885441', dig: '9', email: '00001158854419SP@al.educacao.sp.gov.br' },
+      { id: 27, nome: 'LUANA KAROLINE MARTINS DE OLIVEIRA', ra: '114150635', dig: 'X', email: '0000114150635XSP@al.educacao.sp.gov.br' },
+      { id: 28, nome: 'LUIS MIGUEL GONÇALVES DA SILVA', ra: '123848645', dig: '9', email: '00001238486459SP@al.educacao.sp.gov.br' },
+      { id: 29, nome: 'MANUELLA DE MORAES SOUZA', ra: '114143738', dig: '7', email: '00001141437387SP@al.educacao.sp.gov.br' },
+      { id: 30, nome: 'MARCELA ROBERTO DE OLIVEIRA', ra: '115077815', dig: '5', email: '00001150778155SP@al.educacao.sp.gov.br' },
+      { id: 34, nome: 'MELISSA VICTORIA DE OLIVEIRA CARVALHO', ra: '115887628', dig: '2', email: '00001158876282SP@al.educacao.sp.gov.br' },
+      { id: 35, nome: 'MIGUEL MARTINS DE ASSIS', ra: '113221116', dig: '5', email: '00001132211165SP@al.educacao.sp.gov.br' },
+      { id: 36, nome: 'OMRAN RASEKH', ra: '124600717', dig: '4', email: '00001246007174SP@al.educacao.sp.gov.br' },
+      { id: 37, nome: 'PATRICIA SEGURA', ra: '115077465', dig: '4', email: '00001150774654SP@al.educacao.sp.gov.br' },
+      { id: 39, nome: 'RAUL HENRIQUE CRUS BAPTISTA', ra: '114169380', dig: 'X', email: '0000114169380XSP@al.educacao.sp.gov.br' },
+      { id: 40, nome: 'SARAH VITORIA ALVES OLIVEIRA', ra: '115077243', dig: '8', email: '00001150772438SP@al.educacao.sp.gov.br' },
+      { id: 41, nome: 'YURI GABRIEL DE MORAES PONGOLINO', ra: '115077239', dig: '6', email: '00001150772396SP@al.educacao.sp.gov.br' },
+      { id: 42, nome: 'ZAYN AL ABIDIN RASULI', ra: '125460635', dig: 'X', email: '0000125460635XSP@al.educacao.sp.gov.br' },
+      { id: 43, nome: 'MATHEUS TURCHETTO', ra: '113210966', dig: '8', email: '00001132109668SP@al.educacao.sp.gov.br' },
+      { id: 46, nome: 'DAVID HENRIQUE SILVA DOS SANTOS', ra: '114253876', dig: 'X', email: '0000114253876XSP@al.educacao.sp.gov.br' },
+      { id: 47, nome: 'ABRAHAM PAGES ROJO', ra: '126699052', dig: '5', email: '' },
+      { id: 48, nome: 'BRENO GOUVEA NALIN', ra: '115866442', dig: '4', email: '00001158664424SP@al.educacao.sp.gov.br' }
+    ];
+    students.sort((a, b) => a.id - b.id);
+
+    // ===================== QUESTÕES CONTEXTUALIZADAS =====================
+    const questionsData = [
+      // ===== QUESTÃO 1 =====
+      {
+        id: 1, type: 'multiple', aula: 'Aula 1 – Especiação e adaptação',
+        context: 'Em uma ilha remota do Pacífico, uma população de aves foi dividida por uma erupção vulcânica que formou uma nova cadeia de montanhas. Após centenas de anos, cientistas observaram que as aves de cada lado da montanha desenvolveram bicos com formatos diferentes, adaptados aos alimentos disponíveis em cada região. Quando tentaram cruzar aves dos dois grupos, os filhotes eram inférteis.',
+        text: 'Com base no texto, qual processo evolutivo está ocorrendo e qual fator o desencadeou?',
+        image: 'caminho/para/sua-imagem-especiacao.jpg',
+        options: [
+          'Seleção artificial, causada pela intervenção humana na alimentação das aves.',
+          'Especiação alopátrica, desencadeada pelo isolamento geográfico seguido de isolamento reprodutivo.',
+          'Evolução convergente, causada pela competição por alimento entre as populações.',
+          'Deriva genética, causada pela redução aleatória da variabilidade genética.'
+        ],
+        correct: 1
+      },
+      // ===== QUESTÃO 2 =====
+      {
+        id: 2, type: 'multiple', aula: 'Aula 2 – Evolução convergente e divergente',
+        context: 'Ao estudar diferentes espécies de mamíferos aquáticos, pesquisadores notaram que golfinhos (mamíferos) e tubarões (peixes) possuem corpos hidrodinâmicos e nadadeiras com formatos semelhantes, apesar de terem ancestrais completamente diferentes. Por outro lado, os membros anteriores de golfinhos, morcegos e seres humanos têm a mesma estrutura óssea básica (úmero, rádio, ulna e dedos), mas são usados para funções distintas.',
+        text: 'Os exemplos descritos ilustram, respectivamente, os conceitos de:',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Evolution_plush.jpg/800px-Evolution_plush.jpg',
+        options: [
+          'Evolução convergente e homologia.',
+          'Evolução divergente e analogia.',
+          'Analogia e evolução convergente.',
+          'Homologia e evolução divergente.'
+        ],
+        correct: 0
+      },
+      // ===== QUESTÃO 3 =====
+      {
+        id: 3, type: 'multiple', aula: 'Aula 3 – Evidências da evolução',
+        context: 'Um grupo de paleontólogos encontrou na Chapada dos Veadeiros (GO) um fóssil bem preservado de um réptil pré-histórico com características que misturam traços de dinossauros e aves. Simultaneamente, um laboratório de genética comparou o DNA de aves modernas com o de répteis atuais e identificou sequências genéticas compartilhadas que controlam o desenvolvimento de penas e escamas.',
+        text: 'Qual das seguintes evidências é considerada a mais robusta para estabelecer relações de ancestralidade comum entre as espécies?',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Fossil_%28PSF%29.png/800px-Fossil_%28PSF%29.png',
+        options: [
+          'A semelhança morfológica entre os fósseis e as aves atuais.',
+          'A análise de DNA que revela sequências genéticas compartilhadas.',
+          'A posição estratigráfica onde o fóssil foi encontrado.',
+          'A semelhança no comportamento alimentar entre répteis e aves.'
+        ],
+        correct: 1
+      },
+      // ===== QUESTÃO 4 =====
+      {
+        id: 4, type: 'multiple', aula: 'Aula 4 – Evolução e biodiversidade',
+        context: 'A Mata Atlântica abriga cerca de 20.000 espécies de plantas, 2.000 de vertebrados e milhares de invertebrados, muitas delas endêmicas. Cientistas estimam que essa biodiversidade é resultado de milhões de anos de evolução em um ambiente com grande variação de altitude, clima e disponibilidade de recursos. Além disso, o isolamento de populações em diferentes "ilhas" de floresta ao longo do tempo contribuiu para o surgimento de novas espécies.',
+        text: 'Considerando o texto, qual processo foi fundamental para a geração da alta biodiversidade observada na Mata Atlântica?',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Tree_of_life.svg/800px-Tree_of_life.svg.png',
+        options: [
+          'A seleção natural atuando de forma homogênea em toda a floresta.',
+          'A deriva genética causada por eventos catastróficos recentes.',
+          'O isolamento geográfico e reprodutivo associado à seleção natural em diferentes ambientes.',
+          'A introdução de espécies exóticas que aumentaram a variabilidade genética.'
+        ],
+        correct: 2
+      },
+      // ===== QUESTÃO 5 =====
+      {
+        id: 5, type: 'multiple', aula: 'Aula 5 – Preservação da biodiversidade',
+        context: 'Em 2025, o Instituto Nacional de Pesquisas Espaciais (INPE) registrou um aumento de 25% nos alertas de desmatamento na Amazônia em comparação ao ano anterior. Além da perda direta de habitat, o desmatamento afeta o regime de chuvas, a ciclagem de nutrientes e o estoque de carbono. Estudos indicam que a cada 10% de desmatamento, há uma redução de 15% na diversidade de espécies de aves na região.',
+        text: 'Qual é o impacto direto e indireto do desmatamento descrito no texto sobre a biodiversidade amazônica?',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Desmatamento_na_Amaz%C3%B4nia.jpg/800px-Desmatamento_na_Amaz%C3%B4nia.jpg',
+        options: [
+          'Aumento da biodiversidade devido à abertura de novas áreas para espécies pioneiras.',
+          'Redução da biodiversidade pela perda de habitat e alteração dos serviços ecossistêmicos.',
+          'Deslocamento de espécies para áreas urbanas, aumentando a diversidade nas cidades.',
+          'Aumento da taxa de especiação devido à fragmentação do habitat.'
+        ],
+        correct: 1
+      },
+      // ===== QUESTÃO 6 =====
+      {
+        id: 6, type: 'multiple', aula: 'Aula 6 – Unidades de conservação',
+        context: 'O Parque Nacional da Serra da Canastra (MG) é uma unidade de conservação de proteção integral que abriga nascentes do rio São Francisco e populações do lobo-guará, tamanduá-bandeira e outras espécies ameaçadas. Neste tipo de unidade, as atividades humanas são extremamente restritas, sendo permitidas apenas pesquisas científicas, educação ambiental e turismo ecológico com baixo impacto.',
+        text: 'A principal diferença entre uma unidade de conservação de proteção integral e uma de uso sustentável é que:',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Parque_Nacional_da_Serra_da_Canastra.jpg/800px-Parque_Nacional_da_Serra_da_Canastra.jpg',
+        options: [
+          'As unidades de proteção integral permitem a exploração de recursos naturais de forma controlada.',
+          'As unidades de uso sustentável têm como objetivo a preservação da natureza sem qualquer intervenção humana.',
+          'As unidades de proteção integral priorizam a conservação da natureza, enquanto as de uso sustentável permitem atividades econômicas regulamentadas.',
+          'As unidades de uso sustentável não possuem restrições ambientais e permitem qualquer tipo de ocupação.'
+        ],
+        correct: 2
+      },
+      // ===== QUESTÃO 7 - Dissertativa =====
+      {
+        id: 7, type: 'essay', aula: 'Aula 7 – RPG: plano de manejo',
+        context: 'Em uma unidade de conservação localizada no interior de São Paulo, o conselho gestor está elaborando o plano de manejo. Esse plano deve equilibrar a conservação da biodiversidade com as necessidades das comunidades tradicionais que vivem no entorno, além de prever ações para controle de espécies invasoras, prevenção de incêndios e educação ambiental.',
+        text: 'Descreva dois critérios essenciais que devem ser considerados na elaboração de um plano de manejo para essa unidade de conservação, justificando a importância de cada um.',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Plano_de_Manejo.jpg/800px-Plano_de_Manejo.jpg',
+        options: []
+      },
+      // ===== QUESTÃO 8 - Dissertativa =====
+      {
+        id: 8, type: 'essay', aula: 'Aula 8 – RPG: construindo um plano de manejo',
+        context: 'Durante uma reunião participativa para construção do plano de manejo da Estação Ecológica de Angatuba (SP), representantes da comunidade local, pesquisadores, gestores públicos e ONGs ambientais apresentaram diferentes perspectivas sobre o uso dos recursos naturais. Houve debate sobre a abertura de trilhas para ecoturismo, a permissão de coleta de frutos nativos e a implementação de programas de monitoramento da fauna.',
+        text: 'Por que é importante envolver a comunidade local na construção de um plano de manejo de uma unidade de conservação? Cite e explique dois motivos.',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Comunidade_tradicional.jpg/800px-Comunidade_tradicional.jpg',
+        options: []
+      },
+      // ===== QUESTÃO 9 =====
+      {
+        id: 9, type: 'multiple', aula: 'Aula 9 – Bacias hidrográficas',
+        context: 'A Bacia do Rio Tietê é uma das mais importantes do estado de São Paulo, abastecendo milhões de pessoas e sendo utilizada para geração de energia, irrigação e navegação. No entanto, a urbanização e as atividades agrícolas têm causado o assoreamento dos rios, a contaminação por agrotóxicos e a redução das matas ciliares. Esses impactos comprometem a qualidade da água e a biodiversidade aquática.',
+        text: 'Qual é a função ecológica da mata ciliar para a preservação dos recursos hídricos?',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Mata_ciliar.jpg/800px-Mata_ciliar.jpg',
+        options: [
+          'Aumentar a vazão dos rios durante o período de seca.',
+          'Proteger as margens contra a erosão e o assoreamento, além de filtrar poluentes.',
+          'Facilitar a navegação e o transporte de cargas nos rios.',
+          'Permitir a expansão agrícola até as margens dos rios.'
+        ],
+        correct: 1
+      },
+      // ===== QUESTÃO 10 - Dissertativa =====
+      {
+        id: 10, type: 'essay', aula: 'Aula 10 – Poluição da água',
+        context: 'Na região do Alto Tietê, o aumento populacional e a industrialização têm gerado elevada carga de poluentes nos corpos dágua. As principais fontes de poluição incluem o lançamento de esgoto doméstico não tratado, o descarte de resíduos industriais contendo metais pesados e o uso intensivo de fertilizantes e defensivos agrícolas. Esses poluentes afetam a qualidade da água, os organismos aquáticos e a saúde da população.',
+        text: 'Cite duas fontes de poluição da água mencionadas no texto e explique como cada uma delas afeta os ecossistemas aquáticos.',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Water_pollution.jpg/800px-Water_pollution.jpg',
+        options: []
+      }
+    ];
+
+    // ===================== ESTADO =====================
+    let selectedAnswers = {};
+    let currentStudent = null;
+    let currentClass = '9A';
+
+    const container = document.getElementById('questionsContainer');
+    const studentSelect = document.getElementById('studentSelect');
+    const classSelect = document.getElementById('classSelect');
+    const nDisplay = document.getElementById('nDisplay');
+    const raDisplay = document.getElementById('raDisplay');
+    const emailDisplay = document.getElementById('emailDisplay');
+
+    // ===================== POPULAR SELECT DE ALUNOS =====================
+    function populateStudentSelect() {
+      studentSelect.innerHTML = '<option value="">— selecione —</option>';
+      students.forEach(s => {
+        const opt = document.createElement('option');
+        opt.value = s.id;
+        opt.textContent = `${s.id} - ${s.nome}`;
+        studentSelect.appendChild(opt);
+      });
+    }
+    populateStudentSelect();
+
+    // ===================== ATUALIZAR INFOS DO ALUNO =====================
+    function updateStudentInfo() {
+      const id = parseInt(studentSelect.value);
+      if (id) {
+        currentStudent = students.find(s => s.id === id);
+        if (currentStudent) {
+          nDisplay.textContent = `Nº: ${currentStudent.id}`;
+          raDisplay.textContent = `RA: ${currentStudent.ra}-${currentStudent.dig}`;
+          emailDisplay.textContent = `E-mail: ${currentStudent.email || '—'}`;
+        }
+      } else {
+        currentStudent = null;
+        nDisplay.textContent = 'Nº: —';
+        raDisplay.textContent = 'RA: —';
+        emailDisplay.textContent = 'E-mail: —';
+      }
+    }
+
+    studentSelect.addEventListener('change', updateStudentInfo);
+
+    // ===================== RENDERIZAR QUESTÕES =====================
+    function renderQuestions() {
+      container.innerHTML = '';
+      questionsData.forEach((q, idx) => {
+        const qDiv = document.createElement('div');
+        qDiv.className = 'question';
+        qDiv.dataset.qid = q.id;
+
+        const header = document.createElement('div');
+        header.className = 'q-header';
+        header.innerHTML = `
+          <span class="q-number">Questão ${idx+1}</span>
+          <span class="q-type">${q.type === 'multiple' ? 'Múltipla escolha' : 'Dissertativa'} · ${q.aula}</span>
+        `;
+        qDiv.appendChild(header);
+
+        const textP = document.createElement('div');
+        textP.className = 'q-text';
+        textP.textContent = q.text;
+        qDiv.appendChild(textP);
+
+        if (q.context) {
+          const ctx = document.createElement('div');
+          ctx.className = 'q-context';
+          ctx.textContent = q.context;
+          qDiv.appendChild(ctx);
+        }
+
+        if (q.image) {
+          const img = document.createElement('img');
+          img.src = q.image;
+          img.className = 'q-img';
+          img.alt = 'Ilustração da questão';
+          img.onerror = function() { this.style.display = 'none'; };
+          qDiv.appendChild(img);
+        }
+
+        if (q.type === 'multiple') {
+          const optDiv = document.createElement('div');
+          optDiv.className = 'options';
+          const letters = ['A', 'B', 'C', 'D'];
+          q.options.forEach((optText, i) => {
+            const opt = document.createElement('div');
+            opt.className = 'opt';
+            opt.dataset.index = i;
+            opt.innerHTML = `<span class="letter">${letters[i]}</span> <span>${optText}</span>`;
+            if (selectedAnswers[q.id] === i) opt.classList.add('selected');
+            opt.addEventListener('click', function() {
+              const parent = this.closest('.options');
+              parent.querySelectorAll('.opt').forEach(el => el.classList.remove('selected'));
+              this.classList.add('selected');
+              selectedAnswers[q.id] = parseInt(this.dataset.index);
+            });
+            optDiv.appendChild(opt);
+          });
+          qDiv.appendChild(optDiv);
+        } else {
+          const essayDiv = document.createElement('div');
+          essayDiv.className = 'essay-area';
+          const textarea = document.createElement('textarea');
+          textarea.placeholder = 'Escreva sua resposta aqui...';
+          if (selectedAnswers[q.id]) textarea.value = selectedAnswers[q.id];
+          textarea.addEventListener('input', function() {
+            selectedAnswers[q.id] = this.value;
+          });
+          essayDiv.appendChild(textarea);
+          qDiv.appendChild(essayDiv);
+        }
+        container.appendChild(qDiv);
+      });
+    }
+
+    // ===================== ENVIAR PARA GOOGLE SHEETS =====================
+    function sendToSheets() {
+      if (!currentStudent) {
+        alert('Por favor, selecione um aluno na lista.');
+        return;
+      }
+
+      let missing = false;
+      questionsData.forEach(q => {
+        if (q.type === 'multiple') {
+          if (selectedAnswers[q.id] === undefined || selectedAnswers[q.id] === null) missing = true;
+        } else {
+          if (!selectedAnswers[q.id] || selectedAnswers[q.id].trim() === '') missing = true;
+        }
+      });
+      if (missing) {
+        if (!confirm('Ainda há questões não respondidas. Deseja enviar mesmo assim?')) return;
+      }
+
+      const payload = {
+        student: currentStudent.nome,
+        numero: currentStudent.id,
+        ra: `${currentStudent.ra}-${currentStudent.dig}`,
+        class: currentClass,
+        studentId: currentStudent.id,
+        answers: {}
+      };
+      questionsData.forEach(q => {
+        if (q.type === 'multiple') {
+          const idx = selectedAnswers[q.id];
+          payload.answers[q.id] = (idx !== undefined && idx !== null) ? idx : -1;
+        } else {
+          payload.answers[q.id] = selectedAnswers[q.id] || '';
+        }
+      });
+
+      const scriptUrl = 'https://script.google.com/macros/s/AKfycbxE8WLs-tWJm_2FzHlYzS5bwV7xC-J6nKv48gSZ9eg/exec';
+
+      fetch(scriptUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(() => {
+        alert('✅ Respostas enviadas com sucesso!');
+        console.log('Enviado:', payload);
+      })
+      .catch(err => {
+        alert('❌ Erro ao enviar. Verifique a URL do AppScript.');
+        console.error(err);
+      });
+    }
+
+    // ===================== REINICIAR =====================
+    function resetQuiz() {
+      if (!confirm('Tem certeza que deseja reiniciar todas as respostas?')) return;
+      selectedAnswers = {};
+      renderQuestions();
+      document.querySelectorAll('.essay-area textarea').forEach(ta => ta.value = '');
+      document.querySelectorAll('.opt').forEach(el => el.classList.remove('selected'));
+    }
+
+    // ===================== EVENTOS =====================
+    document.getElementById('sendBtn').addEventListener('click', sendToSheets);
+    document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+
+    // ===================== INICIALIZAÇÃO =====================
+    renderQuestions();
+    updateStudentInfo();
+  })();
+</script>
+
+</body>
+</html>

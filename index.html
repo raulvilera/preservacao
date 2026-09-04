@@ -83,7 +83,7 @@
       border: 1px solid #d4e0ec;
       white-space: nowrap;
     }
-    /* ===== TÍTULO DA ATIVIDADE (ENTRE O ALUNO E AS QUESTÕES) ===== */
+    /* ===== TÍTULO DA ATIVIDADE ===== */
     .activity-title {
       text-align: center;
       font-size: 1.3rem;
@@ -97,7 +97,7 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
       border: 1px solid rgba(255,255,255,0.6);
     }
-    /* === CARDS DAS QUESTÕES COM DEGRADE E SOMBREAMENTO === */
+    /* === CARDS DAS QUESTÕES === */
     .question {
       background: linear-gradient(145deg, #f0f6fe, #e6ecf5);
       border-radius: 28px;
@@ -156,6 +156,7 @@
       backdrop-filter: blur(4px);
       box-shadow: inset 0 1px 4px rgba(0,0,0,0.04);
     }
+    /* ===== IMAGEM COM CURSOR DE AMPLIAÇÃO ===== */
     .q-img {
       width: 100%;
       max-height: 280px;
@@ -166,7 +167,85 @@
       padding: 10px;
       border: 1px solid rgba(255,255,255,0.7);
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
+    .q-img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    /* ===== MODAL PARA AMPLIAR IMAGEM ===== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+      animation: fadeIn 0.3s ease;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      background: transparent;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      animation: zoomIn 0.3s ease;
+      position: relative;
+    }
+    .modal-content img {
+      width: 100%;
+      height: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 16px;
+      background: white;
+      padding: 8px;
+    }
+    .modal-close {
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease;
+      backdrop-filter: blur(4px);
+    }
+    .modal-close:hover {
+      background: rgba(255,255,255,0.4);
+    }
+    .modal-close::before {
+      content: '✕';
+      font-size: 1.8rem;
+      font-weight: 300;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    /* ===== OPÇÕES ===== */
     .options {
       display: flex;
       flex-direction: column;
@@ -289,6 +368,13 @@
     @media (max-width: 700px) {
       .container { padding: 16px; }
       .student-area { flex-direction: column; align-items: stretch; }
+      .modal-close {
+        top: -50px;
+        right: 0;
+        font-size: 1.5rem;
+        width: 40px;
+        height: 40px;
+      }
     }
   </style>
 </head>
@@ -317,7 +403,7 @@
     <span class="info-badge" id="emailDisplay">E-mail: —</span>
   </div>
 
-  <!-- ===== TÍTULO DA ATIVIDADE (ENTRE O ALUNO E AS QUESTÕES) ===== -->
+  <!-- ===== TÍTULO DA ATIVIDADE ===== -->
   <div class="activity-title">
     ATIVIDADE DE CIÊNCIAS (3º BIMESTRE)
   </div>
@@ -332,6 +418,14 @@
   </div>
   <div class="footer">
     Questões baseadas no Guia Priorizado – 3º Bimestre · 9º Ano · Aprendizagens Essenciais Prova Paulista
+  </div>
+</div>
+
+<!-- ===== MODAL PARA AMPLIAR IMAGEM ===== -->
+<div class="modal-overlay" id="imageModal">
+  <div class="modal-content">
+    <button class="modal-close" id="modalCloseBtn" aria-label="Fechar imagem ampliada"></button>
+    <img id="modalImage" src="" alt="Imagem ampliada">
   </div>
 </div>
 
@@ -507,6 +601,45 @@
     const raDisplay = document.getElementById('raDisplay');
     const emailDisplay = document.getElementById('emailDisplay');
 
+    // ===================== ELEMENTOS DO MODAL =====================
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalClose = document.getElementById('modalCloseBtn');
+
+    // ===================== FUNÇÃO PARA ABRIR MODAL =====================
+    function openModal(imageSrc) {
+      modalImage.src = imageSrc;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Impede scroll da página
+    }
+
+    // ===================== FUNÇÃO PARA FECHAR MODAL =====================
+    function closeModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = ''; // Restaura scroll
+    }
+
+    // ===================== EVENTOS DO MODAL =====================
+    // Fechar ao clicar no botão X
+    modalClose.addEventListener('click', function(e) {
+      e.stopPropagation();
+      closeModal();
+    });
+
+    // Fechar ao clicar no overlay (fundo escuro)
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Fechar ao pressionar ESC
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+      }
+    });
+
     // ===================== POPULAR SELECT DE ALUNOS =====================
     function populateStudentSelect() {
       studentSelect.innerHTML = '<option value="">— selecione —</option>';
@@ -571,8 +704,13 @@
           const img = document.createElement('img');
           img.src = q.image;
           img.className = 'q-img';
-          img.alt = 'Ilustração da questão';
-          img.onerror = function() { this.style.display = 'none'; };
+          img.alt = 'Ilustração da questão - Clique para ampliar';
+          img.title = 'Clique para ampliar a imagem';
+          // ===== EVENTO DE CLIQUE PARA AMPLIAR =====
+          img.addEventListener('click', function(e) {
+            e.stopPropagation();
+            openModal(this.src);
+          });
           qDiv.appendChild(img);
         }
 

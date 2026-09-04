@@ -269,7 +269,63 @@
       hyphens: auto;
     }
 
-    /* ===== IMAGEM - DIMENSÕES AMPLIADAS ===== */
+    /* ===== IMAGENS LADO A LADO ===== */
+    .image-pair {
+      display: flex;
+      flex-wrap: wrap;
+      gap: clamp(12px, 2vw, 24px);
+      margin: 10px 0 18px;
+      justify-content: center;
+      align-items: stretch;
+    }
+    .image-pair .img-wrapper {
+      flex: 1 1 calc(50% - 12px);
+      min-width: 200px;
+      max-width: 100%;
+      background: rgba(255,255,255,0.7);
+      border-radius: clamp(12px, 1.5vw, 16px);
+      padding: clamp(8px, 1vw, 14px);
+      border: 2px solid rgba(255,255,255,0.8);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .image-pair .img-wrapper:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+    .image-pair .img-wrapper img {
+      width: 100%;
+      height: auto;
+      max-height: clamp(200px, 35vh, 320px);
+      object-fit: contain;
+      border-radius: clamp(8px, 1vw, 12px);
+      background: rgba(255,255,255,0.5);
+    }
+    .image-pair .img-wrapper .legenda {
+      margin-top: 8px;
+      font-size: clamp(0.7rem, 1vw, 0.85rem);
+      font-weight: 600;
+      color: #0b2b4a;
+      text-align: center;
+      background: rgba(255,255,255,0.7);
+      padding: 4px 12px;
+      border-radius: 20px;
+      width: 100%;
+    }
+    .image-pair .img-wrapper .legenda .seta {
+      color: #1a5a8a;
+      font-weight: 700;
+    }
+    .image-pair .img-wrapper .legenda .destaque {
+      color: #0f4a2e;
+      font-weight: 700;
+    }
+
+    /* ===== IMAGEM ÚNICA ===== */
     .q-img {
       width: 100%;
       max-height: clamp(350px, 55vh, 500px);
@@ -288,16 +344,11 @@
       transform: scale(1.02);
       box-shadow: 0 6px 24px rgba(0,0,0,0.15);
     }
-
-    /* ===== IMAGENS ESPECÍFICAS COM MAIOR DESTAQUE ===== */
     .q-img.diagrama {
       max-height: clamp(400px, 60vh, 550px);
       background: rgba(255,255,255,0.9);
       padding: 12px;
       border: 2px solid #dce6f0;
-    }
-    .q-img.infonutri {
-      max-height: clamp(300px, 50vh, 450px);
     }
 
     /* ===== MODAL ===== */
@@ -590,12 +641,12 @@
         flex: 1 1 100%;
         padding: clamp(12px, 2vw, 16px);
       }
-      .q-img {
-        max-height: clamp(280px, 45vh, 400px);
-        min-height: 150px;
+      .image-pair .img-wrapper {
+        flex: 1 1 100%;
+        min-width: 150px;
       }
-      .q-img.diagrama {
-        max-height: clamp(320px, 50vh, 450px);
+      .image-pair .img-wrapper img {
+        max-height: clamp(180px, 30vh, 260px);
       }
     }
 
@@ -633,12 +684,11 @@
         font-size: clamp(0.7rem, 1vw, 0.85rem); 
         padding: clamp(6px, 1vw, 10px) clamp(10px, 1.5vw, 14px);
       }
-      .q-img {
-        max-height: clamp(220px, 35vh, 320px);
-        min-height: 120px;
+      .image-pair .img-wrapper img {
+        max-height: clamp(160px, 25vh, 220px);
       }
-      .q-img.diagrama {
-        max-height: clamp(260px, 40vh, 360px);
+      .image-pair .img-wrapper .legenda {
+        font-size: clamp(0.6rem, 0.9vw, 0.75rem);
       }
     }
 
@@ -675,13 +725,20 @@
       .header-school h2 { font-size: clamp(0.85rem, 2vw, 1rem); }
       .q-number { font-size: clamp(0.6rem, 0.9vw, 0.7rem); padding: 2px 8px; }
       .q-type { font-size: clamp(0.5rem, 0.7vw, 0.6rem); padding: 2px 6px; }
-      .q-img { 
-        max-height: clamp(180px, 30vh, 250px);
-        min-height: 100px;
+      .image-pair {
+        gap: 10px;
+      }
+      .image-pair .img-wrapper {
+        flex: 1 1 100%;
+        min-width: 120px;
         padding: clamp(6px, 1vw, 10px);
       }
-      .q-img.diagrama {
-        max-height: clamp(220px, 35vh, 300px);
+      .image-pair .img-wrapper img {
+        max-height: clamp(140px, 22vh, 190px);
+      }
+      .image-pair .img-wrapper .legenda {
+        font-size: clamp(0.55rem, 0.8vw, 0.7rem);
+        padding: 3px 8px;
       }
       .essay-area textarea { 
         min-height: clamp(60px, 10vh, 80px); 
@@ -742,13 +799,12 @@
       .info-badge { font-size: 0.55rem; padding: 2px 6px; }
       .student-area { padding: 6px; gap: 4px; }
       .student-area label { font-size: 0.65rem; }
-      .q-img { 
-        max-height: 140px;
-        min-height: 80px;
-        padding: 4px;
+      .image-pair .img-wrapper img {
+        max-height: 110px;
       }
-      .q-img.diagrama {
-        max-height: 180px;
+      .image-pair .img-wrapper .legenda {
+        font-size: 0.5rem;
+        padding: 2px 6px;
       }
       .essay-area textarea { min-height: 50px; font-size: 0.65rem; padding: 6px 8px; }
       .modal-close { top: -24px; width: 24px; height: 24px; font-size: 0.8rem; }
@@ -759,6 +815,7 @@
     @media (prefers-reduced-motion: reduce) {
       * { animation-duration: 0.01ms !important; }
       .question:hover { transform: none; }
+      .image-pair .img-wrapper:hover { transform: none; }
       .q-img:hover { transform: none; }
       .opt:hover { transform: none; }
       .btn:hover { transform: none; }
@@ -768,6 +825,7 @@
 
     @media (hover: none) {
       .question:hover { transform: none; }
+      .image-pair .img-wrapper:hover { transform: none; }
       .q-img:hover { transform: none; }
       .opt:hover { transform: none; background: rgba(255,255,255,0.8); border-color: transparent; }
       .btn:hover { transform: none; background: #0b2b4a; }
@@ -783,12 +841,8 @@
       .opt { font-size: 1.05rem; padding: 16px 24px; }
       .activity-title { font-size: 1.6rem; }
       .header-school h2 { font-size: 1.8rem; }
-      .q-img { 
-        max-height: clamp(450px, 60vh, 600px);
-        min-height: 300px;
-      }
-      .q-img.diagrama {
-        max-height: clamp(500px, 70vh, 700px);
+      .image-pair .img-wrapper img {
+        max-height: clamp(320px, 40vh, 400px);
       }
     }
   </style>
@@ -889,15 +943,40 @@
     ];
     students.sort((a, b) => a.id - b.id);
 
-    // ===================== NOVAS QUESTÕES CONTEXTUALIZADAS =====================
+    // ===================== FUNÇÃO PARA GERAR IMAGENS LADO A LADO =====
+    function criarImagensLadoALado() {
+      return `
+        <div class="image-pair">
+          <div class="img-wrapper" onclick="abrirModalAmpliado('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiPmuVmDE-f15bBS9DdzPJBm9PCfndsYedJ17rdU4fOlCZf0MueADQpwHSDj6ZNjByJHqMj-AHXukQ3CMs8sOqMtJugvJBDCkJ-gfKwl7eBSyFjsbXs6GvvWyWbq1zRd9KCOM79HkYmjBCNy3ifJ_wXakYyfvpWdYXuQjIvuhbQGDc7yzp2r9HCl5iNQYd6/s2560/lagartos_solo_escuro_opcao1.png')">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiPmuVmDE-f15bBS9DdzPJBm9PCfndsYedJ17rdU4fOlCZf0MueADQpwHSDj6ZNjByJHqMj-AHXukQ3CMs8sOqMtJugvJBDCkJ-gfKwl7eBSyFjsbXs6GvvWyWbq1zRd9KCOM79HkYmjBCNy3ifJ_wXakYyfvpWdYXuQjIvuhbQGDc7yzp2r9HCl5iNQYd6/s2560/lagartos_solo_escuro_opcao1.png" alt="População inicial de lagartos" loading="lazy">
+            <div class="legenda">🔵 <span class="destaque">População inicial</span><br>Lagartos de cores variadas em solo escuro</div>
+          </div>
+          <div class="img-wrapper" onclick="abrirModalAmpliado('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJQTjUMXkI_CEbP6D6s0YdgLR0rcx_2ZV4T8gyMen4xfHA19bp2R8p3H-XzdovVjbQ1Xfp3yLLA_t5MY_U8JByeBBnK1C3Q58PbN0CMKlOipueKcjXtOBtHxfIipO9DN0uoBad1FxNvtAxEBwPSxHJUusYeSkrsOeipyS8i153Kw3Uj3ykTAhs0owmCnTS/s2560/lagartos_solo_escuro_opcao2.png')">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJQTjUMXkI_CEbP6D6s0YdgLR0rcx_2ZV4T8gyMen4xfHA19bp2R8p3H-XzdovVjbQ1Xfp3yLLA_t5MY_U8JByeBBnK1C3Q58PbN0CMKlOipueKcjXtOBtHxfIipO9DN0uoBad1FxNvtAxEBwPSxHJUusYeSkrsOeipyS8i153Kw3Uj3ykTAhs0owmCnTS/s2560/lagartos_solo_escuro_opcao2.png" alt="População após seleção natural" loading="lazy">
+            <div class="legenda">🟢 <span class="destaque">Após seleção natural</span><br>Lagartos escuros predominam por camuflagem</div>
+          </div>
+        </div>
+      `;
+    }
+
+    // ===================== FUNÇÃO PARA ABRIR MODAL COM IMAGEM =====
+    function abrirModalAmpliado(src) {
+      const modal = document.getElementById('imageModal');
+      const modalImage = document.getElementById('modalImage');
+      modalImage.src = src;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // ===================== NOVAS QUESTÕES =====================
     const questionsData = [
-      // ===== Questão 1 - Especiação e adaptação =====
+      // ===== Questão 1 - Especiação e adaptação (COM IMAGENS LADO A LADO) =====
       {
         id: 1, type: 'multiple', aula: 'Aula 1 – Especiação e adaptação',
         context: 'Durante uma expedição, cientistas observaram uma população de lagartos com diferentes colorações na pele em uma região de solo escuro. Com o tempo, os lagartos de cor escura passaram a ser mais comuns, pois eram menos visíveis para os predadores. Esse fenômeno ocorreu ao longo de várias gerações, sem qualquer interferência humana.',
         text: 'O principal fenômeno biológico que explica essa mudança na população de lagartos é a:',
-        image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJQTjUMXkI_CEbP6D6s0YdgLR0rcx_2ZV4T8gyMen4xfHA19bp2R8p3H-XzdovVjbQ1Xfp3yLLA_t5MY_U8JByeBBnK1C3Q58PbN0CMKlOipueKcjXtOBtHxfIipO9DN0uoBad1FxNvtAxEBwPSxHJUusYeSkrsOeipyS8i153Kw3Uj3ykTAhs0owmCnTS/s2560/lagartos_solo_escuro_opcao2.png',
-         image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiPmuVmDE-f15bBS9DdzPJBm9PCfndsYedJ17rdU4fOlCZf0MueADQpwHSDj6ZNjByJHqMj-AHXukQ3CMs8sOqMtJugvJBDCkJ-gfKwl7eBSyFjsbXs6GvvWyWbq1zRd9KCOM79HkYmjBCNy3ifJ_wXakYyfvpWdYXuQjIvuhbQGDc7yzp2r9HCl5iNQYd6/s2560/lagartos_solo_escuro_opcao1.png',
+        // Usa a função para gerar as imagens lado a lado
+        imageHtml: criarImagensLadoALado,
         options: [
           'Alteração da coloração provocada por uma mutação intencional dos lagartos.',
           'Adaptação ao ambiente, favorecida pela seleção natural ao longo das gerações.',
@@ -939,7 +1018,7 @@
         id: 4, type: 'multiple', aula: 'Aula 4 – Evolução e biodiversidade',
         context: 'Em uma ilha isolada, cientistas encontraram diferentes espécies de pássaros com bicos de formas e tamanhos variados. Eles perceberam que cada tipo de bico era mais eficiente para obter um tipo específico de alimento — sementes duras, frutas macias ou insetos — conforme a alimentação disponível em cada parte da ilha. Essa diversidade de bicos surgiu ao longo de muitas gerações.',
         text: 'Essa observação permite concluir que as variações nos bicos dos pássaros são:',
-        image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuP0BDTK8ituNCQR4c-g_3pm42tMC9vz1a3pb9RaNhoNVQvkGWmORTQcHqGf7xQUZaIhWe9dc3CejvDCvuBqK4czfizkDFYzIGIWtnmlQuiHIcvj0gt6RTAX3MWO8bfu8kLqONLVa8XGM3Loj1Z83xwwf99s9Zi9m2w33VfQqde6apRm-OSB7-o4I2iOL_/s776/Figura%201.PNG',
+        image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjq2Efy6J5mbVe4FBY9WwxsfZuYT3i4GFInQi2mpADy3-vtkQaWS2VaVWAXAF8fS1G-ZvI5OxQ8CxEVrNcZz7hjMc3mR8MvfcISZGUUvu64vvTSGrcgnFyDedm2Jk_qWtc9Lf7jXKmv1sYMK8h_j1F_X_B2NcIhrOONe8y5U9WM1yXWo5F6Zw_hywSd40ZH/s2176/infografico-impactos-ecossistemas.png',
         options: [
           'Diferenças que surgem ao acaso e não contribuem para a diversidade das espécies.',
           'Características que todas as espécies de pássaros desenvolvem igualmente com o tempo.',
@@ -1096,6 +1175,13 @@
     const modalImage = document.getElementById('modalImage');
     const modalClose = document.getElementById('modalCloseBtn');
 
+    // Função global para abrir modal a partir do HTML
+    window.abrirModalAmpliado = function(src) {
+      modalImage.src = src;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    };
+
     function openModal(imageSrc) {
       modalImage.src = imageSrc;
       modal.classList.add('active');
@@ -1152,16 +1238,19 @@
           qDiv.appendChild(ctx);
         }
 
-        if (q.image) {
+        // ===== VERIFICA SE TEM IMAGENS LADO A LADO =====
+        if (q.imageHtml) {
+          const containerImg = document.createElement('div');
+          containerImg.innerHTML = q.imageHtml();
+          qDiv.appendChild(containerImg.firstElementChild);
+        } 
+        // ===== VERIFICA SE TEM IMAGEM ÚNICA =====
+        else if (q.image) {
           const img = document.createElement('img');
           img.src = q.image;
           img.className = 'q-img';
-          // Adiciona classe especial para imagens que precisam de mais destaque
           if (q.id === 9) {
             img.classList.add('diagrama');
-          }
-          if (q.id === 4 || q.id === 5) {
-            img.classList.add('infonutri');
           }
           img.alt = 'Ilustração da questão - Clique para ampliar';
           img.title = 'Clique para ampliar a imagem';

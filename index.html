@@ -22,39 +22,36 @@
       box-shadow: 0 20px 40px rgba(0,0,0,0.12);
       padding: 30px 30px 40px;
     }
+    /* ===== CABEÇALHO ===== */
     .header-school {
-      background: linear-gradient(145deg, #0b2b4a, #1a4a6e);
-      color: white;
-      padding: 18px 24px;
-      border-radius: 24px;
-      margin-bottom: 28px;
+      background: transparent;
+      color: #0b2b4a;
+      padding: 10px 0 8px 0;
+      margin-bottom: 4px;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 8px 16px rgba(11, 43, 74, 0.25);
+      border-bottom: 2px solid #dce6f0;
     }
     .header-school h2 {
-      font-weight: 600;
-      font-size: 1.3rem;
-      letter-spacing: -0.3px;
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: -0.5px;
+      color: #0b2b4a;
     }
     .header-school .badge {
-      background: rgba(255,255,255,0.15);
-      padding: 6px 20px;
-      border-radius: 40px;
-      font-weight: 500;
-      font-size: 0.95rem;
-      backdrop-filter: blur(4px);
+      display: none;
     }
+    /* ===== ÁREA DO ALUNO ===== */
     .student-area {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px 20px;
+      gap: 12px 18px;
       background: #ffffff;
-      padding: 18px 22px;
+      padding: 16px 22px;
       border-radius: 40px;
-      margin-bottom: 30px;
+      margin-bottom: 16px;
       align-items: center;
       box-shadow: 0 4px 12px rgba(0,0,0,0.06);
       border: 1px solid #dce6f0;
@@ -65,6 +62,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
+      font-size: 0.95rem;
     }
     .student-area select {
       padding: 8px 16px;
@@ -72,18 +70,32 @@
       border: 1px solid #b0c4d9;
       background: white;
       font-weight: 500;
-      min-width: 200px;
+      min-width: 180px;
       cursor: pointer;
     }
     .info-badge {
       background: #eef3f9;
-      padding: 6px 20px;
+      padding: 6px 18px;
       border-radius: 40px;
       font-weight: 500;
       color: #0a2647;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       border: 1px solid #d4e0ec;
       white-space: nowrap;
+    }
+    /* ===== TÍTULO DA ATIVIDADE (ENTRE O ALUNO E AS QUESTÕES) ===== */
+    .activity-title {
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #0b2b4a;
+      background: linear-gradient(145deg, #e8eff8, #dce6f0);
+      padding: 12px 20px;
+      border-radius: 16px;
+      margin: 0 0 20px 0;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      border: 1px solid rgba(255,255,255,0.6);
     }
     /* === CARDS DAS QUESTÕES COM DEGRADE E SOMBREAMENTO === */
     .question {
@@ -283,14 +295,12 @@
 <body>
 <div class="container" id="appContainer">
 
+  <!-- ===== CABEÇALHO ===== -->
   <div class="header-school">
     <h2>E.E. PROFª WANDA MASCAGNI DE SÁ</h2>
-    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-      <span class="badge">9º Ano A</span>
-      <span class="badge">Ciências</span>
-    </div>
   </div>
 
+  <!-- ===== ÁREA DO ALUNO ===== -->
   <div class="student-area" id="studentArea">
     <label>Turma:
       <select id="classSelect">
@@ -307,8 +317,15 @@
     <span class="info-badge" id="emailDisplay">E-mail: —</span>
   </div>
 
+  <!-- ===== TÍTULO DA ATIVIDADE (ENTRE O ALUNO E AS QUESTÕES) ===== -->
+  <div class="activity-title">
+    ATIVIDADE DE CIÊNCIAS (3º BIMESTRE)
+  </div>
+
+  <!-- ===== QUESTÕES ===== -->
   <div id="questionsContainer"></div>
 
+  <!-- ===== BOTÕES ===== -->
   <div class="action-bar">
     <button class="btn" id="sendBtn">📤 Enviar respostas</button>
     <button class="btn btn-outline" id="resetBtn">↺ Reiniciar</button>
@@ -364,12 +381,11 @@
 
     // ===================== QUESTÕES CONTEXTUALIZADAS =====================
     const questionsData = [
-      // ===== QUESTÃO 1 =====
       {
         id: 1, type: 'multiple', aula: 'Aula 1 – Especiação e adaptação',
         context: 'Em uma ilha remota do Pacífico, uma população de aves foi dividida por uma erupção vulcânica que formou uma nova cadeia de montanhas. Após centenas de anos, cientistas observaram que as aves de cada lado da montanha desenvolveram bicos com formatos diferentes, adaptados aos alimentos disponíveis em cada região. Quando tentaram cruzar aves dos dois grupos, os filhotes eram inférteis.',
         text: 'Com base no texto, qual processo evolutivo está ocorrendo e qual fator o desencadeou?',
-        image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuP0BDTK8ituNCQR4c-g_3pm42tMC9vz1a3pb9RaNhoNVQvkGWmORTQcHqGf7xQUZaIhWe9dc3CejvDCvuBqK4czfizkDFYzIGIWtnmlQuiHIcvj0gt6RTAX3MWO8bfu8kLqONLVa8XGM3Loj1Z83xwwf99s9Zi9m2w33VfQqde6apRm-OSB7-o4I2iOL_/s776/Figura%201.PNG',
+        image: 'caminho/para/sua-imagem-especiacao.jpg',
         options: [
           'Seleção artificial, causada pela intervenção humana na alimentação das aves.',
           'Especiação alopátrica, desencadeada pelo isolamento geográfico seguido de isolamento reprodutivo.',
@@ -378,7 +394,6 @@
         ],
         correct: 1
       },
-      // ===== QUESTÃO 2 =====
       {
         id: 2, type: 'multiple', aula: 'Aula 2 – Evolução convergente e divergente',
         context: 'Ao estudar diferentes espécies de mamíferos aquáticos, pesquisadores notaram que golfinhos (mamíferos) e tubarões (peixes) possuem corpos hidrodinâmicos e nadadeiras com formatos semelhantes, apesar de terem ancestrais completamente diferentes. Por outro lado, os membros anteriores de golfinhos, morcegos e seres humanos têm a mesma estrutura óssea básica (úmero, rádio, ulna e dedos), mas são usados para funções distintas.',
@@ -392,7 +407,6 @@
         ],
         correct: 0
       },
-      // ===== QUESTÃO 3 =====
       {
         id: 3, type: 'multiple', aula: 'Aula 3 – Evidências da evolução',
         context: 'Um grupo de paleontólogos encontrou na Chapada dos Veadeiros (GO) um fóssil bem preservado de um réptil pré-histórico com características que misturam traços de dinossauros e aves. Simultaneamente, um laboratório de genética comparou o DNA de aves modernas com o de répteis atuais e identificou sequências genéticas compartilhadas que controlam o desenvolvimento de penas e escamas.',
@@ -406,7 +420,6 @@
         ],
         correct: 1
       },
-      // ===== QUESTÃO 4 =====
       {
         id: 4, type: 'multiple', aula: 'Aula 4 – Evolução e biodiversidade',
         context: 'A Mata Atlântica abriga cerca de 20.000 espécies de plantas, 2.000 de vertebrados e milhares de invertebrados, muitas delas endêmicas. Cientistas estimam que essa biodiversidade é resultado de milhões de anos de evolução em um ambiente com grande variação de altitude, clima e disponibilidade de recursos. Além disso, o isolamento de populações em diferentes "ilhas" de floresta ao longo do tempo contribuiu para o surgimento de novas espécies.',
@@ -420,7 +433,6 @@
         ],
         correct: 2
       },
-      // ===== QUESTÃO 5 =====
       {
         id: 5, type: 'multiple', aula: 'Aula 5 – Preservação da biodiversidade',
         context: 'Em 2025, o Instituto Nacional de Pesquisas Espaciais (INPE) registrou um aumento de 25% nos alertas de desmatamento na Amazônia em comparação ao ano anterior. Além da perda direta de habitat, o desmatamento afeta o regime de chuvas, a ciclagem de nutrientes e o estoque de carbono. Estudos indicam que a cada 10% de desmatamento, há uma redução de 15% na diversidade de espécies de aves na região.',
@@ -434,7 +446,6 @@
         ],
         correct: 1
       },
-      // ===== QUESTÃO 6 =====
       {
         id: 6, type: 'multiple', aula: 'Aula 6 – Unidades de conservação',
         context: 'O Parque Nacional da Serra da Canastra (MG) é uma unidade de conservação de proteção integral que abriga nascentes do rio São Francisco e populações do lobo-guará, tamanduá-bandeira e outras espécies ameaçadas. Neste tipo de unidade, as atividades humanas são extremamente restritas, sendo permitidas apenas pesquisas científicas, educação ambiental e turismo ecológico com baixo impacto.',
@@ -448,7 +459,6 @@
         ],
         correct: 2
       },
-      // ===== QUESTÃO 7 - Dissertativa =====
       {
         id: 7, type: 'essay', aula: 'Aula 7 – RPG: plano de manejo',
         context: 'Em uma unidade de conservação localizada no interior de São Paulo, o conselho gestor está elaborando o plano de manejo. Esse plano deve equilibrar a conservação da biodiversidade com as necessidades das comunidades tradicionais que vivem no entorno, além de prever ações para controle de espécies invasoras, prevenção de incêndios e educação ambiental.',
@@ -456,7 +466,6 @@
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Plano_de_Manejo.jpg/800px-Plano_de_Manejo.jpg',
         options: []
       },
-      // ===== QUESTÃO 8 - Dissertativa =====
       {
         id: 8, type: 'essay', aula: 'Aula 8 – RPG: construindo um plano de manejo',
         context: 'Durante uma reunião participativa para construção do plano de manejo da Estação Ecológica de Angatuba (SP), representantes da comunidade local, pesquisadores, gestores públicos e ONGs ambientais apresentaram diferentes perspectivas sobre o uso dos recursos naturais. Houve debate sobre a abertura de trilhas para ecoturismo, a permissão de coleta de frutos nativos e a implementação de programas de monitoramento da fauna.',
@@ -464,7 +473,6 @@
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Comunidade_tradicional.jpg/800px-Comunidade_tradicional.jpg',
         options: []
       },
-      // ===== QUESTÃO 9 =====
       {
         id: 9, type: 'multiple', aula: 'Aula 9 – Bacias hidrográficas',
         context: 'A Bacia do Rio Tietê é uma das mais importantes do estado de São Paulo, abastecendo milhões de pessoas e sendo utilizada para geração de energia, irrigação e navegação. No entanto, a urbanização e as atividades agrícolas têm causado o assoreamento dos rios, a contaminação por agrotóxicos e a redução das matas ciliares. Esses impactos comprometem a qualidade da água e a biodiversidade aquática.',
@@ -478,7 +486,6 @@
         ],
         correct: 1
       },
-      // ===== QUESTÃO 10 - Dissertativa =====
       {
         id: 10, type: 'essay', aula: 'Aula 10 – Poluição da água',
         context: 'Na região do Alto Tietê, o aumento populacional e a industrialização têm gerado elevada carga de poluentes nos corpos dágua. As principais fontes de poluição incluem o lançamento de esgoto doméstico não tratado, o descarte de resíduos industriais contendo metais pesados e o uso intensivo de fertilizantes e defensivos agrícolas. Esses poluentes afetam a qualidade da água, os organismos aquáticos e a saúde da população.',

@@ -269,25 +269,35 @@
       hyphens: auto;
     }
 
-    /* ===== IMAGEM ===== */
+    /* ===== IMAGEM - DIMENSÕES AMPLIADAS ===== */
     .q-img {
       width: 100%;
-      max-height: clamp(180px, 35vh, 300px);
+      max-height: clamp(350px, 55vh, 500px);
+      min-height: 200px;
       object-fit: contain;
-      margin: 8px 0 16px;
-      border-radius: clamp(12px, 1.5vw, 16px);
-      background: rgba(255,255,255,0.6);
-      padding: clamp(6px, 0.8vw, 12px);
-      border: 1px solid rgba(255,255,255,0.7);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      margin: 10px 0 18px;
+      border-radius: clamp(14px, 1.8vw, 20px);
+      background: rgba(255,255,255,0.7);
+      padding: clamp(8px, 1vw, 16px);
+      border: 2px solid rgba(255,255,255,0.8);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
       cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    @media (hover: hover) {
-      .q-img:hover {
-        transform: scale(1.02);
-        box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-      }
+    .q-img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+    }
+
+    /* ===== IMAGENS ESPECÍFICAS COM MAIOR DESTAQUE ===== */
+    .q-img.diagrama {
+      max-height: clamp(400px, 60vh, 550px);
+      background: rgba(255,255,255,0.9);
+      padding: 12px;
+      border: 2px solid #dce6f0;
+    }
+    .q-img.infonutri {
+      max-height: clamp(300px, 50vh, 450px);
     }
 
     /* ===== MODAL ===== */
@@ -298,12 +308,12 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.85);
+      background: rgba(0, 0, 0, 0.9);
       z-index: 9999;
       justify-content: center;
       align-items: center;
       cursor: pointer;
-      backdrop-filter: blur(4px);
+      backdrop-filter: blur(6px);
       animation: fadeIn 0.3s ease;
       padding: clamp(10px, 3vw, 20px);
     }
@@ -312,7 +322,7 @@
     }
     .modal-content {
       max-width: 95%;
-      max-height: 90%;
+      max-height: 95%;
       background: transparent;
       border-radius: 16px;
       box-shadow: 0 20px 60px rgba(0,0,0,0.6);
@@ -323,23 +333,23 @@
     .modal-content img {
       width: 100%;
       height: 100%;
-      max-height: 80vh;
+      max-height: 85vh;
       object-fit: contain;
       border-radius: 16px;
       background: white;
-      padding: clamp(4px, 0.8vw, 8px);
+      padding: 12px;
     }
     .modal-close {
       position: absolute;
-      top: clamp(-30px, -4vw, -40px);
+      top: clamp(-35px, -4vw, -45px);
       right: clamp(-5px, 0vw, -40px);
-      background: rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.15);
       border: none;
       color: white;
-      font-size: clamp(1.2rem, 2.5vw, 2rem);
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
       cursor: pointer;
-      width: clamp(32px, 5vw, 48px);
-      height: clamp(32px, 5vw, 48px);
+      width: clamp(40px, 5vw, 56px);
+      height: clamp(40px, 5vw, 56px);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -348,11 +358,11 @@
       backdrop-filter: blur(4px);
     }
     .modal-close:hover {
-      background: rgba(255,255,255,0.4);
+      background: rgba(255,255,255,0.3);
     }
     .modal-close::before {
       content: '✕';
-      font-size: clamp(1rem, 2vw, 1.8rem);
+      font-size: clamp(1.2rem, 2.5vw, 2rem);
       font-weight: 300;
     }
     @keyframes fadeIn {
@@ -580,6 +590,13 @@
         flex: 1 1 100%;
         padding: clamp(12px, 2vw, 16px);
       }
+      .q-img {
+        max-height: clamp(280px, 45vh, 400px);
+        min-height: 150px;
+      }
+      .q-img.diagrama {
+        max-height: clamp(320px, 50vh, 450px);
+      }
     }
 
     @media (max-width: 768px) {
@@ -616,6 +633,13 @@
         font-size: clamp(0.7rem, 1vw, 0.85rem); 
         padding: clamp(6px, 1vw, 10px) clamp(10px, 1.5vw, 14px);
       }
+      .q-img {
+        max-height: clamp(220px, 35vh, 320px);
+        min-height: 120px;
+      }
+      .q-img.diagrama {
+        max-height: clamp(260px, 40vh, 360px);
+      }
     }
 
     @media (max-width: 480px) {
@@ -651,7 +675,14 @@
       .header-school h2 { font-size: clamp(0.85rem, 2vw, 1rem); }
       .q-number { font-size: clamp(0.6rem, 0.9vw, 0.7rem); padding: 2px 8px; }
       .q-type { font-size: clamp(0.5rem, 0.7vw, 0.6rem); padding: 2px 6px; }
-      .q-img { max-height: clamp(140px, 25vh, 200px); }
+      .q-img { 
+        max-height: clamp(180px, 30vh, 250px);
+        min-height: 100px;
+        padding: clamp(6px, 1vw, 10px);
+      }
+      .q-img.diagrama {
+        max-height: clamp(220px, 35vh, 300px);
+      }
       .essay-area textarea { 
         min-height: clamp(60px, 10vh, 80px); 
         font-size: clamp(0.7rem, 1vw, 0.8rem);
@@ -711,7 +742,14 @@
       .info-badge { font-size: 0.55rem; padding: 2px 6px; }
       .student-area { padding: 6px; gap: 4px; }
       .student-area label { font-size: 0.65rem; }
-      .q-img { max-height: 110px; }
+      .q-img { 
+        max-height: 140px;
+        min-height: 80px;
+        padding: 4px;
+      }
+      .q-img.diagrama {
+        max-height: 180px;
+      }
       .essay-area textarea { min-height: 50px; font-size: 0.65rem; padding: 6px 8px; }
       .modal-close { top: -24px; width: 24px; height: 24px; font-size: 0.8rem; }
       .modal-close::before { font-size: 0.7rem; }
@@ -745,6 +783,13 @@
       .opt { font-size: 1.05rem; padding: 16px 24px; }
       .activity-title { font-size: 1.6rem; }
       .header-school h2 { font-size: 1.8rem; }
+      .q-img { 
+        max-height: clamp(450px, 60vh, 600px);
+        min-height: 300px;
+      }
+      .q-img.diagrama {
+        max-height: clamp(500px, 70vh, 700px);
+      }
     }
   </style>
 </head>
@@ -846,7 +891,7 @@
 
     // ===================== NOVAS QUESTÕES CONTEXTUALIZADAS =====================
     const questionsData = [
-      // ===== Questão 1 - Especiação e adaptação (baseada no arquivo 34) =====
+      // ===== Questão 1 - Especiação e adaptação =====
       {
         id: 1, type: 'multiple', aula: 'Aula 1 – Especiação e adaptação',
         context: 'Durante uma expedição, cientistas observaram uma população de lagartos com diferentes colorações na pele em uma região de solo escuro. Com o tempo, os lagartos de cor escura passaram a ser mais comuns, pois eram menos visíveis para os predadores. Esse fenômeno ocorreu ao longo de várias gerações, sem qualquer interferência humana.',
@@ -860,7 +905,7 @@
         ],
         correct: 1
       },
-      // ===== Questão 2 - Evolução convergente e divergente (baseada no arquivo 35) =====
+      // ===== Questão 2 - Evolução convergente e divergente =====
       {
         id: 2, type: 'multiple', aula: 'Aula 2 – Evolução convergente e divergente',
         context: 'Ao estudar diferentes espécies de animais voadores, pesquisadores observaram que pássaros e morcegos possuem asas com estruturas internas diferentes, mas que cumprem a mesma função de voar. Enquanto as asas dos pássaros são formadas por penas e ossos modificados, as dos morcegos são formadas por uma membrana de pele esticada entre os dedos alongados. Apesar das diferenças estruturais, ambos os grupos desenvolveram a capacidade de voar de forma eficiente.',
@@ -874,7 +919,7 @@
         ],
         correct: 0
       },
-      // ===== Questão 3 - Evidências da evolução (baseada no arquivo 36) =====
+      // ===== Questão 3 - Evidências da evolução =====
       {
         id: 3, type: 'multiple', aula: 'Aula 3 – Evidências da evolução',
         context: 'O Archaeopteryx é um fóssil famoso que apresenta características de répteis (como dentes e uma longa cauda óssea) e de aves (como penas e asas). Esse fóssil, que viveu há cerca de 150 milhões de anos, é considerado uma peça-chave para entender a transição evolutiva entre dois grandes grupos de vertebrados.',
@@ -888,7 +933,7 @@
         ],
         correct: 2
       },
-      // ===== Questão 4 - Evolução e biodiversidade (baseada no arquivo 37) =====
+      // ===== Questão 4 - Evolução e biodiversidade =====
       {
         id: 4, type: 'multiple', aula: 'Aula 4 – Evolução e biodiversidade',
         context: 'Em uma ilha isolada, cientistas encontraram diferentes espécies de pássaros com bicos de formas e tamanhos variados. Eles perceberam que cada tipo de bico era mais eficiente para obter um tipo específico de alimento — sementes duras, frutas macias ou insetos — conforme a alimentação disponível em cada parte da ilha. Essa diversidade de bicos surgiu ao longo de muitas gerações.',
@@ -902,7 +947,7 @@
         ],
         correct: 3
       },
-      // ===== Questão 5 - Preservação da biodiversidade (baseada no arquivo 38) =====
+      // ===== Questão 5 - Preservação da biodiversidade =====
       {
         id: 5, type: 'multiple', aula: 'Aula 5 – Preservação da biodiversidade',
         context: 'Em diversas regiões do mundo, o aumento das atividades humanas, como a agricultura intensiva, a urbanização acelerada e a poluição dos rios, tem provocado mudanças profundas nos ecossistemas locais. Essas transformações têm impacto direto sobre a biodiversidade, causando efeitos que podem alterar o funcionamento dos ambientes naturais e comprometer serviços ambientais essenciais.',
@@ -916,7 +961,7 @@
         ],
         correct: 0
       },
-      // ===== Questão 6 - Unidades de conservação (baseada no arquivo 39) =====
+      // ===== Questão 6 - Unidades de conservação =====
       {
         id: 6, type: 'multiple', aula: 'Aula 6 – Unidades de conservação',
         context: 'A criação de unidades de conservação no Brasil é uma estratégia legal e territorial utilizada para organizar o uso do espaço e dos recursos naturais em diferentes regiões do país. Essas unidades são classificadas em dois grandes grupos: Unidades de Proteção Integral, que possuem regras mais restritivas quanto às atividades humanas, e Unidades de Uso Sustentável, que permitem certos tipos de uso controlado.',
@@ -930,7 +975,7 @@
         ],
         correct: 3
       },
-      // ===== Questão 7 - RPG: plano de manejo (baseada no arquivo 40) - DISSERTATIVA =====
+      // ===== Questão 7 - RPG: plano de manejo - DISSERTATIVA =====
       {
         id: 7, type: 'essay', aula: 'Aula 7 – RPG: plano de manejo',
         context: 'A Reserva Extrativista Chico Mendes, no Acre, é um exemplo de unidade de conservação que protege a floresta, preserva espécies ameaçadas, mantém rios limpos, regula o clima e garante que comunidades locais possam viver de forma sustentável, por meio do extrativismo vegetal e do ecoturismo. O plano de manejo dessa reserva busca equilibrar a conservação ambiental com as necessidades das populações tradicionais.',
@@ -938,7 +983,7 @@
         image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEioX74OmhEeOudptrsV2GirDhzVrJosNSiOwtuo-hf81AtZ8fDiK8bKQMDO0tJ-KyM4YGgFn_sDwqag2eNSFXqVOBfaa1SjK5cI6ET9q1opxxAxWYT8Sos0m_Ow5_R7eP2XxXgh8HCVjSMKH3EwSvbKGCljxnKoSBoe8mZGgR5AAmfehw4drxsLeTs6wlAT/s1408/Gemini_Generated_Image_26vemb26vemb26ve.png',
         options: []
       },
-      // ===== Questão 8 - RPG: construindo um plano de manejo (baseada no arquivo 40) - DISSERTATIVA =====
+      // ===== Questão 8 - RPG: construindo um plano de manejo - DISSERTATIVA =====
       {
         id: 8, type: 'essay', aula: 'Aula 8 – RPG: construindo um plano de manejo',
         context: 'Durante a elaboração do plano de manejo da Reserva Extrativista Chico Mendes, representantes da comunidade local, pesquisadores, gestores públicos e ONGs ambientais se reuniram para discutir o uso dos recursos naturais. Houve debates sobre a permissão do extrativismo, a implementação de programas de monitoramento da fauna e a criação de rotas de ecoturismo que respeitem a capacidade de suporte da floresta.',
@@ -946,7 +991,7 @@
         image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgId8yEKqpFc1EKABbFlk7xWL6zlrTBXTwTSXo40Tuaew4_9uc848kweqSLj00avhlwFIN09g7oVANUFnvodKAamO3-VFiN10nwL535krZ-qiq7OD3rBsTS0E0lGMHCFJsirUpe7jeNwMhxOUIS89O5wJqI0unqyDrBS0YzY2WR7-2AXUKuWKCQJW1Gb45M/s2816/Gemini_Generated_Image_eo6naoeo6naoeo6n.png',
         options: []
       },
-      // ===== Questão 9 - Bacias hidrográficas (baseada no arquivo 41) =====
+      // ===== Questão 9 - Bacias hidrográficas =====
       {
         id: 9, type: 'multiple', aula: 'Aula 9 – Bacias hidrográficas',
         context: 'Uma bacia hidrográfica é um sistema natural que capta, concentra e direciona as águas superficiais para um ponto comum, geralmente um rio principal. A figura representa os principais componentes de uma bacia hidrográfica, incluindo o rio principal, os afluentes e o divisor de águas — áreas elevadas que separam bacias vizinhas.',
@@ -960,7 +1005,7 @@
         ],
         correct: 1
       },
-      // ===== Questão 10 - Poluição da água (baseada no arquivo 42) - DISSERTATIVA =====
+      // ===== Questão 10 - Poluição da água - DISSERTATIVA =====
       {
         id: 10, type: 'essay', aula: 'Aula 10 – Poluição da água',
         context: 'A água dos rios, lagos e aquíferos pode ser contaminada por diversas fontes, afetando tanto o abastecimento humano quanto a vida aquática. Entre as principais fontes de poluição da água, destacam-se o lançamento de resíduos industriais nos rios, o uso excessivo de fertilizantes na agricultura e o despejo de esgoto doméstico sem tratamento. Esses poluentes causam impactos como a eutrofização, a contaminação por metais pesados e a proliferação de doenças de veiculação hídrica.',
@@ -1110,6 +1155,13 @@
           const img = document.createElement('img');
           img.src = q.image;
           img.className = 'q-img';
+          // Adiciona classe especial para imagens que precisam de mais destaque
+          if (q.id === 9) {
+            img.classList.add('diagrama');
+          }
+          if (q.id === 4 || q.id === 5) {
+            img.classList.add('infonutri');
+          }
           img.alt = 'Ilustração da questão - Clique para ampliar';
           img.title = 'Clique para ampliar a imagem';
           img.loading = 'lazy';
